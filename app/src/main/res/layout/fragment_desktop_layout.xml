@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.bruce.travel.desktop.view.TabViewPager
+        android:id="@+id/desktop_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/desktop_bottom_layout"/>
+
+    <com.bruce.travel.desktop.view.DesktopBottomTabLayout
+        android:id="@+id/desktop_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/desktop_bottom_layout_bg"/>
+</RelativeLayout>

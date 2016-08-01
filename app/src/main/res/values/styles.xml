@@ -1,8 +1,105 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <!--<style name="WelcomeTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">-->
+        <!--<item name="android:background">@drawable/welcome_bg</item>-->
+    <!--</style>-->
+    <!--************************************* progressbar **********************************-->
+    <style name="progressBar" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDuration">1000</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_bar_anim</item>
+    </style>
+    <!--&lt;!&ndash;************************************* Button **********************************&ndash;&gt;-->
+    <!--<style name="common_button">-->
+        <!--<item name="android:gravity">center</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;小：50*30，字体13dp&ndash;&gt;-->
+    <!--<style name="common_small_button" parent="common_button">-->
+        <!--<item name="android:layout_width">@dimen/common_button_width_small</item>-->
+        <!--<item name="android:layout_height">@dimen/common_button_height_small</item>-->
+        <!--<item name="android:textSize">@dimen/common_button_font_small</item>-->
+    <!--</style>-->
+
+    <!--&lt;!&ndash;中：105*32，字体13dp&ndash;&gt;-->
+    <!--<style name="common_middle_button" parent="common_button">-->
+        <!--<item name="android:layout_width">@dimen/common_button_width_middle</item>-->
+        <!--<item name="android:layout_height">@dimen/common_button_height_middle</item>-->
+        <!--<item name="android:textSize">@dimen/common_button_font_middle</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;大：屏幕宽度*40，字体16dp&ndash;&gt;-->
+    <!--<style name="common_big_button" parent="common_button">-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">@dimen/common_button_height_big</item>-->
+        <!--<item name="android:textSize">@dimen/common_button_font_big</item>-->
+    <!--</style>-->
+
+    <!--&lt;!&ndash;蓝色按钮，无尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_button" parent="common_button">-->
+        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
+        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;蓝色按钮，小尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_small_button" parent="common_small_button">-->
+        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
+        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;蓝色按钮，中尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_middle_button" parent="common_middle_button">-->
+        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
+        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;蓝色按钮，大尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_big_button" parent="common_big_button">-->
+        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
+        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
+    <!--</style>-->
+
+    <!--************************************* TextView **********************************-->
+    <style name="common_tv">
+        <item name="android:gravity">center</item>
+    </style>
+    <!--&lt;!&ndash;小：50*30，字体13dp&ndash;&gt;-->
+    <!--<style name="common_small_tv" parent="common_tv">-->
+        <!--<item name="android:layout_width">@dimen/common_tv_width_small</item>-->
+        <!--<item name="android:layout_height">@dimen/common_tv_height_small</item>-->
+        <!--<item name="android:textSize">@dimen/common_tv_font_small</item>-->
+    <!--</style>-->
+
+    <!--&lt;!&ndash;中：105*32，字体13dp&ndash;&gt;-->
+    <!--<style name="common_middle_tv" parent="common_tv">-->
+        <!--<item name="android:layout_width">@dimen/common_tv_width_middle</item>-->
+        <!--<item name="android:layout_height">@dimen/common_tv_height_middle</item>-->
+        <!--<item name="android:textSize">@dimen/common_tv_font_middle</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;大：屏幕宽度*40，字体16dp&ndash;&gt;-->
+    <!--<style name="common_big_tv" parent="common_tv">-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">@dimen/common_tv_height_big</item>-->
+        <!--<item name="android:textSize">@dimen/common_tv_font_big</item>-->
+    <!--</style>-->
+
+    <!--&lt;!&ndash;白色背景蓝色框的TextView，无尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_tv" parent="common_tv">-->
+        <!--<item name="android:background">@drawable/common_tv_bg_selector</item>-->
+        <!--<item name="android:textColor">@color/common_font_black_selector</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;白色背景蓝色框的TextView，小尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_small_tv" parent="common_small_tv">-->
+        <!--<item name="android:background">@drawable/common_tv_bg_selector</item>-->
+        <!--<item name="android:textColor">@color/common_font_black_selector</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;白色背景蓝色框的TextView，中尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_middle_tv" parent="common_middle_tv">-->
+        <!--<item name="android:background">@drawable/common_tv_bg_selector</item>-->
+        <!--<item name="android:textColor">@color/common_font_black_selector</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash;白色背景蓝色框的TextView，大尺寸&ndash;&gt;-->
+    <!--<style name="common_blue_big_tv" parent="common_big_tv">-->
+        <!--<item name="android:background">@drawable/common_tv_bg_selector</item>-->
+        <!--<item name="android:textColor">@color/common_font_black_selector</item>-->
+    <!--</style>-->
 
 </resources>

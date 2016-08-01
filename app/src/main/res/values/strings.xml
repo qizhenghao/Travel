@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="travels">游记</string>
+    <string name="discover">发现</string>
+    <string name="destination">目的地</string>
+    <string name="my">我的</string>
 </resources>
