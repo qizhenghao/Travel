@@ -41,3 +41,6 @@ captures/
 
 .idea/libraries
 .DS_Store
+.idea/
+*.iws
+*.ipr
