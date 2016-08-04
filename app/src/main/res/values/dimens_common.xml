@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--通用button尺寸-->
+    <dimen name="common_button_width_small">50dp</dimen>
+    <dimen name="common_button_width_middle">105dp</dimen>
+    <dimen name="common_button_width_big">300dp</dimen>
+    <dimen name="common_button_height_small">30dp</dimen>
+    <dimen name="common_button_height_middle">32dp</dimen>
+    <dimen name="common_button_height_big">40dp</dimen>
+
+    <dimen name="common_button_font_small">12dp</dimen>
+    <dimen name="common_button_font_middle">13dp</dimen>
+    <dimen name="common_button_font_big">16dp</dimen>
+    <!--通用头像尺寸-->
+    <dimen name="common_head_diameter_small">32dp</dimen>
+    <dimen name="common_head_diameter_middle">40dp</dimen>
+    <dimen name="common_head_diameter_big">70dp</dimen>
+    <dimen name="common_head_rect_size">25dp</dimen>
+
+    <!-- 通用按钮的圆角角度-->
+    <dimen name="common_button_radius">2dp</dimen>
+    <dimen name="common_button_semi_circle_radius">22.5dp</dimen>
+
+    <dimen name="fontsize_7px">7sp</dimen>
+    <dimen name="fontsize_8px">8sp</dimen>
+    <dimen name="fontsize_9px">9sp</dimen>
+    <dimen name="fontsize_10px">10sp</dimen>
+    <dimen name="fontsize_11px">11sp</dimen>
+    <dimen name="fontsize_12px">12sp</dimen>
+    <dimen name="fontsize_13px">13sp</dimen>
+    <dimen name="fontsize_14px">14sp</dimen>
+    <dimen name="fontsize_15px">15sp</dimen>
+    <dimen name="fontsize_16px">16sp</dimen>
+    <dimen name="fontsize_17px">17sp</dimen>
+    <dimen name="fontsize_18px">18sp</dimen>
+    <dimen name="fontsize_20px">20sp</dimen>
+    <dimen name="fontsize_21px">21sp</dimen>
+    <dimen name="fontsize_22px">22sp</dimen>
+    <dimen name="fontsize_23px">23sp</dimen>
+    <dimen name="fontsize_24px">24sp</dimen>
+    <dimen name="fontsize_40px">40sp</dimen>
+</resources>

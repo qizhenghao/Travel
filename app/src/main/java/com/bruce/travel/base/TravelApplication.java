@@ -1,4 +1,4 @@
-package com.bruce.travel.universal.base;
+package com.bruce.travel.base;
 
 import android.app.Application;
 import android.os.Handler;

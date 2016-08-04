@@ -7,4 +7,7 @@
     <string name="discover">发现</string>
     <string name="destination">目的地</string>
     <string name="my">我的</string>
+
+    <string name="load_more_item_layout_1">加载更多</string>
+    <string name="load_no_more_comments_item_layout_1">无更多内容</string>
 </resources>

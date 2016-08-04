@@ -12,50 +12,72 @@
         <item name="android:indeterminateDuration">1000</item>
         <item name="android:indeterminateDrawable">@drawable/progress_bar_anim</item>
     </style>
-    <!--&lt;!&ndash;************************************* Button **********************************&ndash;&gt;-->
-    <!--<style name="common_button">-->
-        <!--<item name="android:gravity">center</item>-->
-    <!--</style>-->
-    <!--&lt;!&ndash;小：50*30，字体13dp&ndash;&gt;-->
-    <!--<style name="common_small_button" parent="common_button">-->
-        <!--<item name="android:layout_width">@dimen/common_button_width_small</item>-->
-        <!--<item name="android:layout_height">@dimen/common_button_height_small</item>-->
-        <!--<item name="android:textSize">@dimen/common_button_font_small</item>-->
-    <!--</style>-->
+    <!--************************************* Button **********************************-->
+    <style name="common_button">
+        <item name="android:gravity">center</item>
+    </style>
+    <!--小：50*30，字体13dp-->
+    <style name="common_small_button" parent="common_button">
+        <item name="android:layout_width">@dimen/common_button_width_small</item>
+        <item name="android:layout_height">@dimen/common_button_height_small</item>
+        <item name="android:textSize">@dimen/common_button_font_small</item>
+    </style>
 
-    <!--&lt;!&ndash;中：105*32，字体13dp&ndash;&gt;-->
-    <!--<style name="common_middle_button" parent="common_button">-->
-        <!--<item name="android:layout_width">@dimen/common_button_width_middle</item>-->
-        <!--<item name="android:layout_height">@dimen/common_button_height_middle</item>-->
-        <!--<item name="android:textSize">@dimen/common_button_font_middle</item>-->
-    <!--</style>-->
-    <!--&lt;!&ndash;大：屏幕宽度*40，字体16dp&ndash;&gt;-->
-    <!--<style name="common_big_button" parent="common_button">-->
-        <!--<item name="android:layout_width">match_parent</item>-->
-        <!--<item name="android:layout_height">@dimen/common_button_height_big</item>-->
-        <!--<item name="android:textSize">@dimen/common_button_font_big</item>-->
-    <!--</style>-->
+    <!--中：105*32，字体13dp-->
+    <style name="common_middle_button" parent="common_button">
+        <item name="android:layout_width">@dimen/common_button_width_middle</item>
+        <item name="android:layout_height">@dimen/common_button_height_middle</item>
+        <item name="android:textSize">@dimen/common_button_font_middle</item>
+    </style>
+    <!--大：屏幕宽度*40，字体16dp-->
+    <style name="common_big_button" parent="common_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/common_button_height_big</item>
+        <item name="android:textSize">@dimen/common_button_font_big</item>
+    </style>
 
-    <!--&lt;!&ndash;蓝色按钮，无尺寸&ndash;&gt;-->
-    <!--<style name="common_blue_button" parent="common_button">-->
-        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
-        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
-    <!--</style>-->
-    <!--&lt;!&ndash;蓝色按钮，小尺寸&ndash;&gt;-->
-    <!--<style name="common_blue_small_button" parent="common_small_button">-->
-        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
-        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
-    <!--</style>-->
-    <!--&lt;!&ndash;蓝色按钮，中尺寸&ndash;&gt;-->
-    <!--<style name="common_blue_middle_button" parent="common_middle_button">-->
-        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
-        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
-    <!--</style>-->
-    <!--&lt;!&ndash;蓝色按钮，大尺寸&ndash;&gt;-->
-    <!--<style name="common_blue_big_button" parent="common_big_button">-->
-        <!--<item name="android:background">@drawable/common_btn_blue_selector</item>-->
-        <!--<item name="android:textColor">@color/common_btn_font_white_selector</item>-->
-    <!--</style>-->
+    <!--白色按钮，无尺寸-->
+    <style name="common_white_button" parent="common_button">
+        <item name="android:background">@drawable/common_btn_white_selector</item>
+        <item name="android:textColor">@color/common_font_black_selector</item>
+    </style>
+
+    <!--白色按钮，小尺寸-->
+    <style name="common_white_small_button" parent="common_small_button">
+        <item name="android:background">@drawable/common_btn_white_selector</item>
+        <item name="android:textColor">@color/common_font_black_selector</item>
+    </style>
+    <!--白色按钮，中尺寸-->
+    <style name="common_white_middle_button" parent="common_middle_button">
+        <item name="android:background">@drawable/common_btn_white_selector</item>
+        <item name="android:textColor">@color/common_font_black_selector</item>
+    </style>
+    <!--白色按钮，大尺寸-->
+    <style name="common_white_big_button" parent="common_big_button">
+        <item name="android:background">@drawable/common_btn_white_selector</item>
+        <item name="android:textColor">@color/common_font_black_selector</item>
+    </style>
+
+    <!--蓝色按钮，无尺寸-->
+    <style name="common_blue_button" parent="common_button">
+        <item name="android:background">@drawable/common_btn_blue_selector</item>
+        <item name="android:textColor">@color/common_font_white_selector</item>
+    </style>
+    <!--蓝色按钮，小尺寸-->
+    <style name="common_blue_small_button" parent="common_small_button">
+        <item name="android:background">@drawable/common_btn_blue_selector</item>
+        <item name="android:textColor">@color/common_font_white_selector</item>
+    </style>
+    <!--蓝色按钮，中尺寸-->
+    <style name="common_blue_middle_button" parent="common_middle_button">
+        <item name="android:background">@drawable/common_btn_blue_selector</item>
+        <item name="android:textColor">@color/common_font_white_selector</item>
+    </style>
+    <!--蓝色按钮，大尺寸-->
+    <style name="common_blue_big_button" parent="common_big_button">
+        <item name="android:background">@drawable/common_btn_blue_selector</item>
+        <item name="android:textColor">@color/common_font_white_selector</item>
+    </style>
 
     <!--************************************* TextView **********************************-->
     <style name="common_tv">
@@ -102,4 +124,9 @@
         <!--<item name="android:textColor">@color/common_font_black_selector</item>-->
     <!--</style>-->
 
+
+    <declare-styleable name="ScrollOverListFooter">
+        <attr format="boolean" name="use_border"/>
+        <attr format="reference" name="footer_divider"/>
+    </declare-styleable>
 </resources>

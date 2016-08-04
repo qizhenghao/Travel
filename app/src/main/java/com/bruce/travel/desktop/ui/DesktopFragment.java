@@ -7,11 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bruce.travel.R;
-import com.bruce.travel.universal.base.BaseFragment;
+import com.bruce.travel.base.BaseFragment;
 import com.bruce.travel.desktop.view.DesktopBottomTabLayout;
 import com.bruce.travel.desktop.adapter.DesktopFragmentAdapter;
 import com.bruce.travel.desktop.TestFragment;
 import com.bruce.travel.desktop.view.TabViewPager;
+import com.bruce.travel.travels.TravelsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class DesktopFragment extends BaseFragment {
     @Override
     protected void initData() {
         fragments = new ArrayList<>();
-        fragments.add(TestFragment.newInstance("1"));
+        fragments.add(new TravelsFragment());
         fragments.add(TestFragment.newInstance("2"));
         fragments.add(TestFragment.newInstance("3"));
         fragments.add(TestFragment.newInstance("4"));

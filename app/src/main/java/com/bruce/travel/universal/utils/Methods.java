@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.bruce.travel.universal.base.TravelApplication;
+import com.bruce.travel.base.TravelApplication;
 
 /**
  * Created by qizhenghao on 16/7/1.
@@ -12,8 +12,11 @@ import com.bruce.travel.universal.base.TravelApplication;
 public class Methods {
 
     public static int getScreenWidth() {
-        WindowManager wm = (WindowManager) TravelApplication.getContext().getSystemService(Context.WINDOW_SERVICE);
-        return wm.getDefaultDisplay().getWidth();
+        if (Variables.screenWidth == 0) {
+            WindowManager wm = (WindowManager) TravelApplication.getContext().getSystemService(Context.WINDOW_SERVICE);
+            Variables.screenWidth = wm.getDefaultDisplay().getWidth();
+        }
+        return Variables.screenWidth;
     }
 
 

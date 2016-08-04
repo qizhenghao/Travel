@@ -1,4 +1,4 @@
-package com.bruce.travel.universal.base;
+package com.bruce.travel.base;
 
 import android.support.v7.app.AppCompatActivity;
 

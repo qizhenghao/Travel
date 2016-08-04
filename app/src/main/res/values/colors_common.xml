@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--通用颜色-->
+    <color name="blue_light">#35a2e7</color>
+    <color name="gold">#ffd600</color>
+    <color name="blue_dark">#2b3643</color>
+    <color name="green">#41ca7e</color>
+    <color name="red">#ef4c4c</color>
+    <color name="grey_dark">#4d6b6c</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="purple">#af67e6</color>
+    <!--通用背景颜色-->
+    <color name="grey_f2">#f2f2f2</color>
+    <color name="grey_e4">#e4e4e4</color>
+    <color name="grey_e6">#e6e6e6</color>
+    <color name="grey_c8">#c8c8c8</color>
+    <color name="grey_d2">#d2d2d2</color>
+    <color name="grey_78">#787878</color>
+    <color name="grey_cf">#cfcfcf</color>
+    <color name="grey_f9">#f9f9f9</color>
+
+
+
+    <!--通用颜色按压态-->
+    <color name="blue_light_pressed">#8035a2e7</color>
+    <color name="gold_pressed">#80ffd600</color>
+    <color name="blue_dark_pressed">#802b3643</color>
+    <color name="green_pressed">#8041ca7e</color>
+    <color name="red_pressed">#80ef4c4c</color>
+    <color name="grey_dark_pressed">#804d6b6c</color>
+    <color name="white_pressed">#80ffffff</color>
+    <color name="purple_pressed">#80af67e6</color>
+    <color name="grey_d2_pressed">#80d2d2de</color>
+    <color name="grey_78_pressed">#80d2d2de</color>
+
+    <!--通用字体颜色-->
+    <color name="font_grey_c8">#c8c8c8</color>
+    <color name="font_grey_a0">#a0a0a0</color>
+    <color name="font_grey_64">#646464</color>
+    <color name="font_grey_84">#848484</color>
+    <color name="font_grey_ca">#cacaca</color>
+    <color name="font_black_50">#505050</color>
+    <color name="font_black_28">#282828</color>
+    <color name="font_black_17">#171717</color>
+    <color name="font_black_17_pressed">#80171717</color>
+    <color name="font_grey_cb_pressed">#80cbcbcb</color>
+
+    <color name="skin_using_color">#A7A7A7</color>
+
+    <color name="profile_ic_double_watch">#e0e1e2</color>
+    <color name="profile_ic_no_watch">#f0c504</color>
+    <color name="profile_ic_apply_watched">#48c980</color>
+    <color name="half_black_transparent">#80000000</color>
+    <color name="gold_70">#ffd700</color>
+    <color name="gold_60">#ffd600</color>
+    <color name="gold_90">#e4ffd600</color>
+    <color name="profile_watch">#ffda19</color>
+    <color name="profile_both_watch">#d4d7d9</color>
+</resources>

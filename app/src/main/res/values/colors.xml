@@ -2,4 +2,6 @@
 <resources>
     <color name="main_bottom_tab_textcolor_normal">#999999</color>
     <color name="main_bottom_tab_textcolor_selected">#FF7D00</color>
+    <color name="vc_0_0_1_newsfeed_pull_down_bg">#FFFFFFFF</color>
+    <color name="news_feed_bg_color">#F0F1F3</color>
 </resources>
