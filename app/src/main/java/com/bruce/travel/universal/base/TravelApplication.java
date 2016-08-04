@@ -1,7 +1,6 @@
-package com.bruce.travel.base;
+package com.bruce.travel.universal.base;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 

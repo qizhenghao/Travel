@@ -11,8 +11,8 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bruce.travel.utils.Methods;
-import com.bruce.travel.utils.Variables;
+import com.bruce.travel.universal.utils.Methods;
+import com.bruce.travel.universal.utils.Variables;
 
 /**
  * Created by qizhenghao 2016-08-01 17:07:30.

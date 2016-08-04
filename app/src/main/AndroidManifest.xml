@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        android:name=".base.TravelApplication">
+        android:name=".universal.base.TravelApplication">
         <activity
             android:name=".desktop.ui.DesktopActivity"
             android:label="@string/app_name" >

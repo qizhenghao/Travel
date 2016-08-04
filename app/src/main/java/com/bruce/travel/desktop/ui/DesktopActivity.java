@@ -3,7 +3,7 @@ package com.bruce.travel.desktop.ui;
 import android.os.Bundle;
 
 import com.bruce.travel.R;
-import com.bruce.travel.base.BaseActivity;
+import com.bruce.travel.universal.base.BaseActivity;
 
 
 public class DesktopActivity extends BaseActivity {

@@ -1,4 +1,4 @@
-package com.bruce.travel.base;
+package com.bruce.travel.universal.base;
 
 import android.app.Activity;
 import android.content.Context;

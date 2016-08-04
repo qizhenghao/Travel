@@ -2,13 +2,12 @@ package com.bruce.travel.desktop.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bruce.travel.R;
-import com.bruce.travel.base.BaseFragment;
+import com.bruce.travel.universal.base.BaseFragment;
 import com.bruce.travel.desktop.view.DesktopBottomTabLayout;
 import com.bruce.travel.desktop.adapter.DesktopFragmentAdapter;
 import com.bruce.travel.desktop.TestFragment;

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bruce.travel.R;
-import com.bruce.travel.base.BaseFragment;
+import com.bruce.travel.universal.base.BaseFragment;
 
 /**
  * Created by qizhenghao on 16/8/1.

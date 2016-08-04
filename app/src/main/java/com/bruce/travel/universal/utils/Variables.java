@@ -1,8 +1,8 @@
-package com.bruce.travel.utils;
+package com.bruce.travel.universal.utils;
 
 import android.widget.Toast;
 
-import com.bruce.travel.base.TravelApplication;
+import com.bruce.travel.universal.base.TravelApplication;
 
 /**
  * Created by qizhenghao on 16/7/6.
