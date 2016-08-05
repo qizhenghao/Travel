@@ -54,15 +54,15 @@ public class HeaderAdViewView extends HeaderViewInterface<List<String>> {
     }
 
     private void initViews() {
-        ViewGroup.LayoutParams vpParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Methods.getScreenWidth() * 9 / 16);
-        rootView.setLayoutParams(vpParams);
+        ViewGroup.LayoutParams vpParams = vpAd.getLayoutParams();
+        vpParams.height = Methods.getScreenWidth()*8/16;
     }
 
     @Override
     protected void getView(List<String> list, ListView listView) {
         rootView = mInflate.inflate(R.layout.fragment_travels_header_vp_layout, listView, false);
-        initViews();
         ButterKnife.bind(this, rootView);
+        initViews();
         dealWithTheView(list);
         listView.addHeaderView(rootView);
     }

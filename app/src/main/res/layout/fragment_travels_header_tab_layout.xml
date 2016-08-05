@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/blue_light"
-              android:orientation="horizontal">
+<com.bruce.travel.travels.view.FilterView
+    android:id="@+id/fv_filter"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white"/>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="wrap_content"-->
+              <!--android:background="@color/blue_light"-->
+              <!--android:orientation="horizontal">-->
 
-    <TextView
-        android:id="@+id/fragment_travels_tab1_tv"
-        style="@style/common_blue_button"
-        android:layout_height="36dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:text="按时间排列"/>
+    <!--<TextView-->
+        <!--android:id="@+id/fragment_travels_tab1_tv"-->
+        <!--style="@style/common_blue_button"-->
+        <!--android:layout_height="36dp"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:text="按时间排列"/>-->
 
-    <View
-        android:layout_width="1dp"
-        android:background="@color/white_pressed"
-        android:layout_gravity="center_vertical"
-        android:layout_height="14dp"/>
+    <!--<View-->
+        <!--android:layout_width="1dp"-->
+        <!--android:background="@color/white_pressed"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_height="14dp"/>-->
 
-    <TextView
-        android:id="@+id/fragment_travels_tab2_tv"
-        style="@style/common_blue_button"
-        android:layout_height="36dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:text="按地点排列"/>
-</LinearLayout>
+    <!--<TextView-->
+        <!--android:id="@+id/fragment_travels_tab2_tv"-->
+        <!--style="@style/common_blue_button"-->
+        <!--android:layout_height="36dp"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:text="按地点排列"/>-->
+<!--</LinearLayout>-->

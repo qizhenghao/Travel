@@ -1,64 +1,120 @@
 package com.bruce.travel.travels.adapter;
 
-import android.app.Activity;
-import android.view.Gravity;
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
+import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bruce.travel.base.BaseActivity;
-import com.bruce.travel.universal.utils.Methods;
 
+import com.bruce.travel.R;
+import com.bruce.travel.travels.model.TravelsEntity;
+
+import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
- * Created by qizhenghao on 16/8/4.
+ * Created by sunfusheng on 16/4/20.
  */
-public class TravelsAdapter extends BaseAdapter {
+public class TravelsAdapter extends BaseListAdapter<TravelsEntity> {
 
-    private Activity mContext;
-    private List<String> list;
+    private boolean isNoData;
+    private int mHeight;
+    public static final int ONE_SCREEN_COUNT = 7; // 一屏能显示的个数，这个根据屏幕高度和各自的需求定
+    public static final int ONE_REQUEST_COUNT = 10; // 一次请求的个数
 
-    public TravelsAdapter(Activity activity, List<String> list) {
-        this.mContext = activity;
-        this.list = list;
-    }
-    @Override
-    public int getCount() {
-        return list.size();
+    public TravelsAdapter(Context context) {
+        super(context);
     }
 
-    @Override
-    public Object getItem(int position) {
-        return list.get(position);
+    public TravelsAdapter(Context context, List<TravelsEntity> list) {
+        super(context, list);
     }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
+    // 设置数据
+    public void setData(List<TravelsEntity> list) {
+        clearAll();
+        addALL(list);
+
+        isNoData = false;
+        if (list.size() == 1 && list.get(0).isNoData()) {
+            // 暂无数据布局
+            isNoData = list.get(0).isNoData();
+            mHeight = list.get(0).getHeight();
+        } else {
+            // 添加空数据
+            if (list.size() < ONE_SCREEN_COUNT) {
+                addALL(createEmptyList(ONE_SCREEN_COUNT - list.size()));
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    // 创建不满一屏的空数据
+    public List<TravelsEntity> createEmptyList(int size) {
+        List<TravelsEntity> emptyList = new ArrayList<>();
+        if (size <= 0) return emptyList;
+        for (int i=0; i<size; i++) {
+            emptyList.add(new TravelsEntity());
+        }
+        return emptyList;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            holder = new ViewHolder();
-            holder.textView = new TextView(mContext);
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Methods.computePixelsWithDensity(30));
-            holder.textView.setLayoutParams(params);
-            holder.textView.setGravity(Gravity.CENTER);
-            convertView = holder.textView;
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+        // 暂无数据
+        if (isNoData) {
+            convertView = mInflater.inflate(R.layout.fragment_travels_no_data_layout, null);
+            AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mHeight);
+            RelativeLayout rootView = ButterKnife.findById(convertView, R.id.rl_root_view);
+            rootView.setLayoutParams(params);
+            return convertView;
         }
-        holder.textView.setText("第" + position + "条");
+
+        // 正常数据
+        final ViewHolder holder;
+        if (convertView != null && convertView instanceof LinearLayout) {
+            holder = (ViewHolder) convertView.getTag();
+        } else {
+            convertView = mInflater.inflate(R.layout.fragment_travels_list_item, null);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
+        }
+
+        TravelsEntity entity = getItem(position);
+
+        holder.llRootView.setVisibility(View.VISIBLE);
+        if (TextUtils.isEmpty(entity.getType())) {
+            holder.llRootView.setVisibility(View.INVISIBLE);
+            return convertView;
+        }
+
+        holder.tvTitle.setText(entity.getFrom() + entity.getTitle() + entity.getType());
+        holder.tvRank.setText("排名：" + entity.getRank());
+        mImageManager.loadUrlImage(entity.getImage_url(), holder.ivImage);
+
         return convertView;
     }
 
-    class ViewHolder {
-        TextView textView;
+    static class ViewHolder {
+        @Bind(R.id.ll_root_view)
+        LinearLayout llRootView;
+        @Bind(R.id.iv_image)
+        ImageView ivImage;
+        @Bind(R.id.tv_title)
+        TextView tvTitle;
+        @Bind(R.id.tv_rank)
+        TextView tvRank;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

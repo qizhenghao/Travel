@@ -29,7 +29,7 @@ public class HeaderChannelAdapter extends BaseListAdapter<ChannelEntity> {
     public View getView(int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_travel_header_channel_item_layout, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_travels_header_channel_item_layout, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
