@@ -76,19 +76,17 @@ public class PinnedHeaderListView extends ScrollOverListView {
         }
     }
 
-    @Override
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (getAdapter() == null || headerTabView == null || getFirstItemIndex() < headerTabIndex)
-            return;
-        int saveCount = canvas.save();
-        canvas.translate(0, mHeaderOffset);
-        canvas.clipRect(0, 0, getWidth(), headerTabView.getMeasuredHeight());
-        headerTabView.draw(canvas);
-        canvas.restoreToCount(saveCount);
-//        headerTabView.layout(0,0, headerTabView.getMeasuredWidth(), headerTabView.getMeasuredHeight());
-//        drawChild(canvas, headerTabView, getDrawingTime());
-    }
+//    @Override
+//    protected void dispatchDraw(Canvas canvas) {
+//        super.dispatchDraw(canvas);
+//        if (getAdapter() == null || headerTabView == null || getFirstItemIndex() < headerTabIndex)
+//            return;
+//        int saveCount = canvas.save();
+//        canvas.translate(0, mHeaderOffset);
+//        canvas.clipRect(0, 0, getWidth(), headerTabView.getMeasuredHeight());
+//        headerTabView.draw(canvas);
+//        canvas.restoreToCount(saveCount);
+//    }
 
 
 }

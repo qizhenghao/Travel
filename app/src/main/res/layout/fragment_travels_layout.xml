@@ -6,4 +6,7 @@
         android:id="@+id/fragment_travels_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <!--<include-->
+        <!--layout="@layout/fragment_travels_header_tab_layout"/>-->
 </FrameLayout>

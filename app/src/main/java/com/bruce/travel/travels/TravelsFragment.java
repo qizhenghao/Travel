@@ -11,8 +11,10 @@ import android.widget.AbsListView;
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
 import com.bruce.travel.travels.adapter.TravelsAdapter;
+import com.bruce.travel.travels.view.HeaderAdViewView;
 import com.bruce.travel.travels.view.PinnedHeaderListView;
 import com.bruce.travel.universal.utils.Methods;
+import com.bruce.travel.universal.utils.ModelUtil;
 import com.bruce.travel.universal.view.ScrollOverListView;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
 public class TravelsFragment extends BaseFragment implements ScrollOverListView.OnPullDownListener{
 
     private PinnedHeaderListView mListView;
-    private View headerVp;
+    private HeaderAdViewView headerVp;
     private View headerTab;
     private TravelsAdapter mAdapter;
 
@@ -37,12 +39,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
     @Override
     protected void initView() {
         mListView = (PinnedHeaderListView) mContentView.findViewById(R.id.fragment_travels_lv);
-        headerVp = LayoutInflater.from(mActivity).inflate(R.layout.fragment_travels_header_vp_layout, null);
-        headerTab = LayoutInflater.from(mActivity).inflate(R.layout.fragment_travels_header_tab_layout, null);
-        AbsListView.LayoutParams vpParams = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Methods.getScreenWidth() * 9 / 16);
-        headerVp.setLayoutParams(vpParams);
-        mListView.addHeaderView(headerVp);
-        mListView.addHeaderTabView(headerTab);
+        headerVp = new HeaderAdViewView(mActivity);
     }
 
     @Override
@@ -55,11 +52,25 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         mListView.setAdapter(mAdapter);
         mListView.setRefreshable(true);
         mListView.setOnPullDownListener(this);
+
+        headerVp.fillView(ModelUtil.getAdData(), mListView);
+        headerTab = LayoutInflater.from(mActivity).inflate(R.layout.fragment_travels_header_tab_layout, null);
+        mListView.addHeaderTabView(headerTab);
     }
 
     @Override
     protected void initListener() {
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
 
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
     }
 
     @Override
