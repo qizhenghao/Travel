@@ -2,7 +2,6 @@ package com.bruce.travel.travels;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,8 @@ import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
 import com.bruce.travel.travels.adapter.TravelsAdapter;
 import com.bruce.travel.travels.view.HeaderAdViewView;
+import com.bruce.travel.travels.view.HeaderChannelViewView;
 import com.bruce.travel.travels.view.PinnedHeaderListView;
-import com.bruce.travel.universal.utils.Methods;
 import com.bruce.travel.universal.utils.ModelUtil;
 import com.bruce.travel.universal.view.ScrollOverListView;
 
@@ -26,7 +25,8 @@ import java.util.List;
 public class TravelsFragment extends BaseFragment implements ScrollOverListView.OnPullDownListener{
 
     private PinnedHeaderListView mListView;
-    private HeaderAdViewView headerVp;
+    private HeaderAdViewView headerAdViewView;
+    private HeaderChannelViewView headerChannelViewView;
     private View headerTab;
     private TravelsAdapter mAdapter;
 
@@ -39,7 +39,8 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
     @Override
     protected void initView() {
         mListView = (PinnedHeaderListView) mContentView.findViewById(R.id.fragment_travels_lv);
-        headerVp = new HeaderAdViewView(mActivity);
+        headerAdViewView = new HeaderAdViewView(mActivity);
+        headerChannelViewView = new HeaderChannelViewView(mActivity);
     }
 
     @Override
@@ -53,7 +54,8 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         mListView.setRefreshable(true);
         mListView.setOnPullDownListener(this);
 
-        headerVp.fillView(ModelUtil.getAdData(), mListView);
+        headerAdViewView.fillView(ModelUtil.getAdData(), mListView);
+        headerChannelViewView.fillView(ModelUtil.getChannelData(), mListView);
         headerTab = LayoutInflater.from(mActivity).inflate(R.layout.fragment_travels_header_tab_layout, null);
         mListView.addHeaderTabView(headerTab);
     }
