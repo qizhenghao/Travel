@@ -26,9 +26,14 @@ public class ModelUtil {
     // 广告数据
     public static List<String> getAdData() {
         List<String> adList = new ArrayList<>();
-        adList.add("http://img0.imgtn.bdimg.com/it/u=1270781761,1881354959&fm=21&gp=0.jpg");
-        adList.add("http://img0.imgtn.bdimg.com/it/u=2138116966,3662367390&fm=21&gp=0.jpg");
-        adList.add("http://img0.imgtn.bdimg.com/it/u=1296117362,655885600&fm=21&gp=0.jpg");
+//        adList.add("http://img0.imgtn.bdimg.com/it/u=1270781761,1881354959&fm=21&gp=0.jpg");
+//        adList.add("http://img0.imgtn.bdimg.com/it/u=2138116966,3662367390&fm=21&gp=0.jpg");
+//        adList.add("http://img0.imgtn.bdimg.com/it/u=1296117362,655885600&fm=21&gp=0.jpg");
+        adList.add("http://thumbnail0.baidupcs.com/thumbnail/c6c553d1dcefdad0ee3fc4f9899ff52f?fid=1997786739-250528-430607603306376&time=1470394800&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-uqqDDPN5Sg9dMZV6cxB2pDJhD%2FA%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=5051758050410078220&dp-callid=0&size=c710_u400&quality=100");
+        adList.add("http://img2.ph.126.net/uA75ADvzg-TnPnOsBONenw==/6608534374399192856.jpg");
+        adList.add("http://m.tuniucdn.com/filebroker/cdn/olb/d4/7a/d47aacbdfc24a9890ceaf8cc32a5c8c9_w800_h400_c1_t0.jpg");
+        adList.add("http://upload.17u.com/uploadfile/2015/01/09/2/201501091014115097620.jpg");
+        adList.add("http://m.tuniucdn.com/fb2/t1/G1/M00/0B/32/Cii9EVZFhHWITxtjAAM2lV-HknoAAAMGgPmgKoAAzat612_w800_h400_c1_t0.jpg");
         return adList;
     }
 
