@@ -34,10 +34,10 @@ public class DesktopBottomTabLayout extends LinearLayout {
             getContext().getString(R.string.destination),
             getContext().getString(R.string.my)};
     private int mIconRes[][] = {
-            {R.drawable.icon_main_home_normal, R.drawable.icon_main_home_selected},
-            {R.drawable.icon_main_service_normal, R.drawable.icon_main_service_selected},
-            {R.drawable.icon_main_category_normal, R.drawable.icon_main_category_selected},
-            {R.drawable.icon_main_mine_normal, R.drawable.icon_main_mine_selected}
+            {R.drawable.common_btn_feed_normal, R.drawable.common_btn_feed_pressdown},
+            {R.drawable.common_btn_explore_normal, R.drawable.common_btn_explore_pressdown},
+            {R.drawable.common_btn_buddy_normal, R.drawable.common_btn_buddy_pressdown},
+            {R.drawable.common_btn_profile_normal, R.drawable.common_btn_profile_pressdown}
     };
 
     private View[] mIconLayouts;

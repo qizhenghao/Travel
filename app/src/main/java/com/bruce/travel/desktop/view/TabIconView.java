@@ -77,6 +77,7 @@ public class TabIconView extends ImageView {
     }
 
     private int sizeAdapt(int size) {
-        return (int) (size/ Variables.density * 2.5);
+//        return (int) (size/ Variables.density * 2.5);
+        return size;
     }
 }
