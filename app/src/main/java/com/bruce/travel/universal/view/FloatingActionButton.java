@@ -34,9 +34,6 @@ import android.widget.ImageButton;
 
 import com.bruce.travel.R;
 import com.bruce.travel.universal.utils.Methods;
-import com.nineoldandroids.view.ViewHelper;
-import com.nineoldandroids.view.ViewPropertyAnimator;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -367,19 +364,21 @@ public class FloatingActionButton extends ImageButton {
                     return;
                 }
             }
-            int translationY = visible ? 0 : height + getMarginBottom() + 10;
-//            TranslateAnimation translateAnimation = new TranslateAnimation(0f, 0f, 0f, translationY);
+//            int translationY = visible ? 0 : height + getMarginBottom() + 10;
+            int translationY = height + getMarginBottom() + 10;
+            TranslateAnimation translateAnimation = new TranslateAnimation(0f, 0f, visible ? translationY : 0f, visible ? 0 : translationY);
+            translateAnimation.setFillAfter(true);
             if (animate) {
-//                translateAnimation.setDuration(TRANSLATE_DURATION_MILLIS);
-//                translateAnimation.setInterpolator(mInterpolator);
-                ViewPropertyAnimator.animate(this).setInterpolator(mInterpolator)
-                        .setDuration(TRANSLATE_DURATION_MILLIS)
-                        .translationY(translationY);
+                translateAnimation.setDuration(TRANSLATE_DURATION_MILLIS);
+                translateAnimation.setInterpolator(mInterpolator);
+//                ViewPropertyAnimator.animate(this).setInterpolator(mInterpolator)
+//                        .setDuration(TRANSLATE_DURATION_MILLIS)
+//                        .translationY(translationY);
             } else {
-                ViewHelper.setTranslationY(this, translationY);
+//                ViewHelper.setTranslationY(this, translationY);
             }
-//            this.setAnimation(translateAnimation);
-//            translateAnimation.start();
+            this.setAnimation(translateAnimation);
+            translateAnimation.start();
             // On pre-Honeycomb a translated view is still clickable, so we need to disable clicks manually
             if (!hasHoneycombApi()) {
                 setClickable(visible);
