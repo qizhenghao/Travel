@@ -18,7 +18,9 @@ import com.bruce.travel.travels.view.FilterView;
 import com.bruce.travel.travels.view.HeaderAdViewView;
 import com.bruce.travel.travels.view.HeaderChannelViewView;
 import com.bruce.travel.travels.view.HeaderFilterViewView;
+import com.bruce.travel.universal.utils.Methods;
 import com.bruce.travel.universal.utils.ModelUtil;
+import com.bruce.travel.universal.view.FloatingActionButton;
 import com.bruce.travel.universal.view.ScrollOverListView;
 
 import java.util.List;
@@ -39,8 +41,10 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
     private FilterData filterData;
 
 
-    @Bind(R.id.fv_top_filter)
+    @Bind(R.id.fragment_travels_top_filter_view)
     FilterView fvTopFilter;
+    @Bind(R.id.fragment_travels_write_fab)
+    FloatingActionButton mWriteFAB;
 
     private View itemHeaderAdView; // 从ListView获取的广告子View
     private View itemHeaderFilterView; // 从ListView获取的筛选子View
@@ -115,8 +119,8 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
             @Override
             public void onFilterClick(int position) {
 //                if (isStickyTop) {
-                    filterPosition = position;
-                    fvTopFilter.showFilterLayout(position);
+                filterPosition = position;
+                fvTopFilter.showFilterLayout(position);
 //                    if (titleViewHeight - 3 > filterViewTopSpace || filterViewTopSpace > titleViewHeight + 3) {
 //                    mListView.smoothScrollToPositionFromTop(filterViewPosition, 0);
 //                    }
@@ -156,6 +160,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                mWriteFAB.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
                 if (isScrollIdle && adViewTopSpace < 0) return;
 
                 // 获取广告头部View、自身的高度、距离顶部的高度
@@ -190,6 +195,13 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
 
                 fvTopFilter.setStickyTop(isStickyTop);
 
+            }
+        });
+
+        mWriteFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Methods.showToast("FAB", false);
             }
         });
     }

@@ -15,8 +15,8 @@ public class TravelApplication extends Application {
 
     @Override
     public void onCreate() {
-        mContext = this;
         super.onCreate();
+        mContext = this;
     }
 
     public static TravelApplication getContext() {

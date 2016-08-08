@@ -1,6 +1,7 @@
 package com.bruce.travel.universal.utils;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -21,6 +22,12 @@ public class Methods {
 
 
     public static int computePixelsWithDensity(int dp) {
+        if (Variables.density == 0) {
+            WindowManager wm = (WindowManager) TravelApplication.getContext().getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics metric = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(metric);
+            Variables.density = metric.density;
+        }
         return (int) (dp * Variables.density + 0.5);
     }
 

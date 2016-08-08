@@ -9,7 +9,7 @@ import com.bruce.travel.base.TravelApplication;
  */
 public class Variables {
 
-    public static final float density = TravelApplication.getContext().getResources().getDisplayMetrics().density;
+    public static float density;
 
     public static Toast gToast;
     public static int screenWidth;

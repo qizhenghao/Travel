@@ -24,6 +24,7 @@
 
     <!--通用颜色按压态-->
     <color name="blue_light_pressed">#8035a2e7</color>
+    <color name="blue_light_ripple">#4035a2e7</color>
     <color name="gold_pressed">#80ffd600</color>
     <color name="blue_dark_pressed">#802b3643</color>
     <color name="green_pressed">#8041ca7e</color>
