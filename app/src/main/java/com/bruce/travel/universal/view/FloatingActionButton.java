@@ -42,6 +42,9 @@ public class FloatingActionButton extends ImageButton {
     private int mPreviousFirstVisibleItem;
     private int mLastScrollY;
     private AbsListView mListView;
+    private int translationY;
+    private TranslateAnimation translateAnimationDown;
+    private TranslateAnimation translateAnimationUp;
 
     @Retention(RetentionPolicy.SOURCE)//源码级别保留，编译后消失
     @IntDef({TYPE_NORMAL, TYPE_MINI})//官方文档说明，安卓开发应避免使用Enum（枚举类），因为相比于静态常量Enum会花费两倍以上的内存
@@ -364,21 +367,32 @@ public class FloatingActionButton extends ImageButton {
                     return;
                 }
             }
-//            int translationY = visible ? 0 : height + getMarginBottom() + 10;
-            int translationY = height + getMarginBottom() + 10;
-            TranslateAnimation translateAnimation = new TranslateAnimation(0f, 0f, visible ? translationY : 0f, visible ? 0 : translationY);
-            translateAnimation.setFillAfter(true);
-            if (animate) {
-                translateAnimation.setDuration(TRANSLATE_DURATION_MILLIS);
-                translateAnimation.setInterpolator(mInterpolator);
+
+            //初始化动画
+            if (translationY == 0) {
+                translationY = height + getMarginBottom() + 10;
+            }
+            if (translateAnimationDown == null) {
+                translateAnimationDown = new TranslateAnimation(0f, 0f, 0f, translationY);
+                translateAnimationDown.setDuration(TRANSLATE_DURATION_MILLIS);
+                translateAnimationDown.setInterpolator(mInterpolator);
+                translateAnimationDown.setFillAfter(true);
+            }
+            if (translateAnimationUp == null) {
+                translateAnimationUp = new TranslateAnimation(0f, 0f, translationY, 0f);
+                translateAnimationUp.setFillAfter(true);
+                translateAnimationUp.setDuration(TRANSLATE_DURATION_MILLIS);
+                translateAnimationUp.setInterpolator(mInterpolator);
+            }
+
+//            if (animate) {
 //                ViewPropertyAnimator.animate(this).setInterpolator(mInterpolator)
 //                        .setDuration(TRANSLATE_DURATION_MILLIS)
 //                        .translationY(translationY);
-            } else {
+//            } else {
 //                ViewHelper.setTranslationY(this, translationY);
-            }
-            this.setAnimation(translateAnimation);
-            translateAnimation.start();
+//            }
+            this.startAnimation(visible ? translateAnimationUp : translateAnimationDown);
             // On pre-Honeycomb a translated view is still clickable, so we need to disable clicks manually
             if (!hasHoneycombApi()) {
                 setClickable(visible);
