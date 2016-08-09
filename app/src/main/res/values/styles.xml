@@ -22,6 +22,11 @@
     <style name="common_button">
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="CommonRadioButton" parent="common_button">
+        <item name="android:background">@drawable/radio_btn_selector</item>
+        <item name="android:textColor">@color/common_font_black_selector</item>
+    </style>
     <!--小：50*30，字体13dp-->
     <style name="common_small_button" parent="common_button">
         <item name="android:layout_width">@dimen/common_button_width_small</item>

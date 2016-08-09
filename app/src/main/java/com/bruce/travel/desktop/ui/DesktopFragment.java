@@ -12,6 +12,7 @@ import com.bruce.travel.desktop.view.DesktopBottomTabLayout;
 import com.bruce.travel.desktop.adapter.DesktopFragmentAdapter;
 import com.bruce.travel.desktop.TestFragment;
 import com.bruce.travel.desktop.view.TabViewPager;
+import com.bruce.travel.mine.ui.MineFragment;
 import com.bruce.travel.travels.TravelsFragment;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class DesktopFragment extends BaseFragment {
         fragments.add(new TravelsFragment());
         fragments.add(TestFragment.newInstance("2"));
         fragments.add(TestFragment.newInstance("3"));
-        fragments.add(TestFragment.newInstance("4"));
+        fragments.add(new MineFragment());
         mAdapter = new DesktopFragmentAdapter(getFragmentManager(), fragments);
         mViewPager.setAdapter(mAdapter);
         mTabLayout.setViewPager(mViewPager);
