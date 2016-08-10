@@ -1,2 +1,2 @@
-# travel
-An android App for recording travel notes
+# Travel
+An android app for recording travel notes
