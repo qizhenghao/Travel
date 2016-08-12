@@ -43,9 +43,10 @@ public class DestinationFragment extends BaseFragment {
         DestinationInfo destinationInfo1 = new DestinationInfo();
         destinationInfo1.name = "1";
         titleList.add(destinationInfo1);
-        detailList = new ArrayList<>();
         titleAdapter = new TitleAdapter(mActivity, titleList);
         mTitleLv.setAdapter(titleAdapter);
+
+        detailList = new ArrayList<>();
     }
 
     @Override
