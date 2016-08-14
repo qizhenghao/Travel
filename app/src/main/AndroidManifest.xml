@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".mine.ui.LoginActivity"/>
         <activity android:name=".mine.ui.RegisterActivity"/>
+        <activity android:name=".mine.ui.SettingActivity"/>
     </application>
 
 </manifest>

@@ -34,7 +34,7 @@ public class MyDbHelper extends SQLiteOpenHelper{
     }
 
     public void insert(String name,String phone,String pwd){
-        SQLiteDatabase db=this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("insert into "+TABLE_NAME+"(username,phone,password) values(?,?,?)", new String[]{name,phone,pwd});
     }
 
@@ -59,4 +59,126 @@ public class MyDbHelper extends SQLiteOpenHelper{
 
         return cursor;
     }
+
+//    private DatabaseHelper mDbHelper;
+//    private SQLiteDatabase  mDb;
+//    private static MyDbHelper openHelper = null;
+//    private static int version = 1;
+//    private static String mDbName = "mydb";
+//
+//    private static String TableNames[];
+//    private static String FiledNames[][];
+//    private static String FiledTypes[][];
+//    private static String NO_CREATE_TABLE = "no tables";
+//    private static String message = "";
+//
+//    private final Context mCtx;
+//
+//    public MyDbHelper(Context ctx) {
+//        this.mCtx = ctx;
+//    }
+//
+//    public static MyDbHelper getInstance(Context context) {
+//        if(openHelper == null) {
+//            openHelper = new MyDbHelper(context);
+//            TableNames = MyDbInfo.getTableNames();
+//            FiledNames = MyDbInfo.getFieldNames();
+//            FiledTypes = MyDbInfo.getFiledTypes();
+//        }
+//        return openHelper;
+//    }
+//
+//    private static class DatabaseHelper extends SQLiteOpenHelper {
+//
+//
+//        public DatabaseHelper(Context context) {
+//            super(context, mDbName, null, version);
+//        }
+//
+//        @Override
+//        public void onCreate(SQLiteDatabase db) {
+//            if(TableNames == null) {
+//                message = NO_CREATE_TABLE;
+//            }
+//            for(int i = 0; i < TableNames.length; i++) {
+//                String sql = "CREATE TABLE " + TableNames[i] + " (";
+//                for(int j = 0; j < FiledNames[i].length; j++) {
+//                    sql += FiledNames[i][j] + " " + FiledTypes[i][j] + ",";
+//                }
+//                sql = sql.substring(0,sql.length() - 1);
+//                sql += ")";
+//                db.execSQL(sql);
+//            }
+//        }
+//
+//        @Override
+//        public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
+//            for(int i = 0; i < TableNames[i].length(); i ++) {
+//                String sql = "DROP TABLE IF EXITS " + TableNames[i];
+//                db.execSQL(sql);
+//            }
+//            onCreate(db);
+//        }
+//    }
+//
+//    public void insertTables(String[] tableNames, String[][] filedNames, String[][] filedTypes) {
+//        TableNames = tableNames;
+//        FiledNames = filedNames;
+//        FiledTypes = filedTypes;
+//    }
+//
+//    public MyDbHelper open() throws SQLException {
+//        mDbHelper = new DatabaseHelper(mCtx);
+//        mDb = mDbHelper.getWritableDatabase();
+//        return this;
+//    }
+//
+//    public void close() {
+//        mDbHelper.close();
+//    }
+//
+//    public void execSQL(String sql) throws java.sql.SQLException{
+//        mDb.execSQL(sql);
+//    }
+//
+//    public Cursor rawQuery(String sql, String[] selectionArgs) {
+//        Cursor cursor = mDb.rawQuery(sql, selectionArgs);
+//        return cursor;
+//    }
+//
+//    public  Cursor  select(String table){
+//        Cursor cursor = mDb.rawQuery("select distinct * from "+ table, null);
+//
+//        return cursor;
+//    }
+//
+//    public Cursor select(String table, String[] columns, String selection, String[]
+//            selectionArgs, String groupBy, String having, String orderBy) {
+//        Cursor cursor = mDb.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+//        return cursor;
+//    }
+//
+//    public long insert(String table, String fields[], String values[]) {
+//        ContentValues cv = new ContentValues();
+//        for(int i = 0; i < fields.length; i++) {
+//            cv.put(fields[i], values[i]);
+//        }
+//        return mDb.insert(table,null,cv);
+//    }
+//
+//    public int delete(String table, String where, String[] whereValue) {
+//        return mDb.delete(table, where, whereValue);
+//    }
+//
+//    public int update(String table, String updateFields[], String updateValues[], String where, String[] whereValue) {
+//        ContentValues cv = new ContentValues();
+//        for(int i = 0; i < updateFields.length; i++) {
+//            cv.put(updateFields[i], updateValues[i]);
+//        }
+//        return mDb.update(table, cv, where, whereValue);
+//    }
+//
+//    public String getMessage() {
+//        return message;
+//    }
 }

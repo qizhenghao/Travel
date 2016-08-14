@@ -1,14 +1,10 @@
 package com.bruce.travel.mine.ui;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -20,13 +16,7 @@ import android.widget.Toast;
 
 import com.bruce.travel.R;
 import com.bruce.travel.db.MyDbHelper;
-import com.bruce.travel.mine.data.UserInfo;
-
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.bruce.travel.desktop.ui.DesktopActivity;
 
 import static android.view.View.*;
 
@@ -44,7 +34,7 @@ public class LoginActivity extends Activity implements OnClickListener {
     private LinearLayout account_login_ll, dynamic_login_ll;
     private RadioGroup login_rg;
 
-    public static MyDbHelper db;
+    private MyDbHelper db;
     SharedPreferences sp;
     private boolean flag = false;
 
@@ -111,21 +101,18 @@ public class LoginActivity extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-
-        db = new MyDbHelper(this);
+            db = new MyDbHelper(this);
 //        sp = this.getSharedPreferences("userInfo", LoginActivity.MODE_WORLD_READABLE);
-
-
         switch(v.getId()) {
             case R.id.close_btn:
-                this.finish();
+//                this.finish();
                 break;
             case R.id.login_btn:
 
                 String account_login_name = account_login_name_et.getText().toString();
                 String account_login_password = account_lognin_password_et.getText().toString();
-                String dynamic_login_number = dynamic_login_number_et.getText().toString();
-                String dynamic_login_password = dynamic_login_number_et.getText().toString();
+//                String dynamic_login_number = dynamic_login_number_et.getText().toString();
+//                String dynamic_login_password = dynamic_login_number_et.getText().toString();
 
                 if(TextUtils.isEmpty(account_login_name)) {
                     Toast.makeText(getApplicationContext(), getString(R.string.error_user_empty), Toast.LENGTH_LONG).show();
@@ -157,7 +144,11 @@ public class LoginActivity extends Activity implements OnClickListener {
                 }else{
 //                    Intent intent1 = new Intent(LoginActivity.this, RegisterActivity.class);
 //                    startActivity(intent1);
-                    Toast.makeText(getApplicationContext(), "登陆成功,正在获取用户数据...", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "登陆成功,正在获取用户数据...", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, DesktopActivity.class);
+                    intent.putExtra("loginState",true);
+                    intent.putExtra("username",account_login_name);
+                    startActivity(intent);
                 }
 
                 break;

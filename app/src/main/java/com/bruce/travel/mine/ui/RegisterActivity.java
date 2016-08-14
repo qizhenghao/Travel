@@ -1,10 +1,9 @@
 package com.bruce.travel.mine.ui;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +11,9 @@ import android.widget.Toast;
 
 import com.bruce.travel.R;
 import com.bruce.travel.db.MyDbHelper;
-import com.bruce.travel.mine.data.UserInfo;
+import com.bruce.travel.desktop.ui.DesktopActivity;
+import com.bruce.travel.mine.data.AccountData;
+import com.bruce.travel.mine.data.CommonData;
 
 /**
  * Created by 梦亚 on 2016/8/7.
@@ -22,7 +23,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     private Button return_btn;
     private EditText user_name_et, phone_et, password_et;
     private Button register_btn;
-    private UserInfo user;
     private MyDbHelper db;
     private String user_name, phone, password;
     @Override
@@ -42,32 +42,32 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         return_btn.setOnClickListener(this);
         register_btn.setOnClickListener(this);
 
-        user = new UserInfo();
-        db = new MyDbHelper(this);
 
-        user_name = user_name_et.getText().toString();
-        phone = phone_et.getText().toString();
-        password = password_et.getText().toString();
-        user.setUsername(user_name);
-        user.setPhone(phone);
-        user.setPassword(password);
+
     }
 
     @Override
     public void onClick(View v) {
-
+        db = new MyDbHelper(this);
         switch(v.getId()) {
             case R.id.register_btn:
-//                Cursor cursor = db.select();
-//                cursor.moveToFirst();
-//                while(cursor.moveToNext()) {
-//                    if (cursor.getString(cursor.getColumnIndex("username")).equals(user_name)) {
-//                        Toast.makeText(getApplicationContext(), getString(R.string.username_has_existed), Toast.LENGTH_LONG).show();
-//                    } else {
-//                        db.insert(user_name, phone, password);
-//                    }
-//                }
+                user_name = user_name_et.getText().toString();
+                phone = phone_et.getText().toString();
+                password = password_et.getText().toString();
+
+                if (TextUtils.isEmpty(user_name)) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_user_empty), Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_password_empty), Toast.LENGTH_LONG).show();
+                    return;
+                }
                 db.insert(user_name, phone, password);
+                Intent intent = new Intent(RegisterActivity.this, DesktopActivity.class);
+                intent.putExtra("loginState",true);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.return_btn:
                 this.finish();

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_ea">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_set"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/black_light"
+                android:textSize="9pt"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="360dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divider_2"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_local_image"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/black_light"
+                android:textSize="9pt"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="360dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divider_2"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/change_password"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/black_light"
+                android:textSize="9pt"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="360dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divider_2"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/change_password"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/black_light"
+                android:textSize="9pt"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="360dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divider_2"/>
+        <LinearLayout
+            android:id="@+id/quit_ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quit_txt"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/black_light"
+                android:textSize="9pt"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

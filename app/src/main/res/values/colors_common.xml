@@ -10,6 +10,7 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="purple">#af67e6</color>
+    <color name="black_light">#2e2e2e</color>
     <color name="white_transparent">#ddffffff</color>
     <!--通用背景颜色-->
     <color name="grey_f2">#f2f2f2</color>
