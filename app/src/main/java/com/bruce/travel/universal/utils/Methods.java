@@ -1,6 +1,8 @@
 package com.bruce.travel.universal.utils;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -57,4 +59,5 @@ public class Methods {
         };
         TravelApplication.getApplicationHandler().post(update);
     }
+
 }
