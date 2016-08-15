@@ -6,4 +6,5 @@ package com.bruce.travel.message.model;
 public class DestinationInfo {
 
     public String name;
+    public String content;
 }
