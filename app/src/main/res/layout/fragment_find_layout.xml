@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.bruce.travel.finds.view.FindTopTabLayout
+        android:id="@+id/find_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/blue_light1">
+        <LinearLayout
+            android:id="@+id/tab_text_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:id="@+id/tab_latest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="最新"
+                android:textSize="9.5pt"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tab_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="推荐"
+                android:textSize="9.5pt"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+        <com.bruce.travel.finds.view.LineViewPagerIndicator
+            android:id="@+id/tab_line_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/tab_text_layout"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:hint="搜索"
+            android:paddingLeft="8dp"
+            android:textColor="@color/grey_c8"
+            android:background="@drawable/search_bg"
+            android:layout_below="@+id/tab_line_layout"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="20dp"/>
+
+    </com.bruce.travel.finds.view.FindTopTabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/find_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/find_top_layout"/>
+
+</RelativeLayout>

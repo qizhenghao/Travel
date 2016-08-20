@@ -12,6 +12,7 @@ import com.bruce.travel.desktop.view.DesktopBottomTabLayout;
 import com.bruce.travel.desktop.adapter.DesktopFragmentAdapter;
 import com.bruce.travel.desktop.TestFragment;
 import com.bruce.travel.desktop.view.TabViewPager;
+import com.bruce.travel.finds.ui.FindFragment;
 import com.bruce.travel.message.ui.DestinationFragment;
 import com.bruce.travel.mine.ui.MineFragment;
 import com.bruce.travel.travels.TravelsFragment;
@@ -47,7 +48,7 @@ public class DesktopFragment extends BaseFragment {
     protected void initData() {
         fragments = new ArrayList<>();
         fragments.add(new TravelsFragment());
-        fragments.add(TestFragment.newInstance("2"));
+        fragments.add(new FindFragment());
         fragments.add(new DestinationFragment());
         fragments.add(new MineFragment());
         mAdapter = new DesktopFragmentAdapter(getFragmentManager(), fragments);

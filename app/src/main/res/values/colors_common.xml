@@ -2,6 +2,7 @@
 <resources>
     <!--通用颜色-->
     <color name="blue_light">#35a2e7</color>
+    <color name="blue_light1">#ddbcdaed</color>
     <color name="gold">#ffd600</color>
     <color name="blue_dark">#2b3643</color>
     <color name="green">#41ca7e</color>

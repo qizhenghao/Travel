@@ -18,33 +18,33 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/close_btn_icon"/>
 
-            <RadioGroup
-                android:id="@+id/login_rg"
-                android:layout_width="340dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="80dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
-                <RadioButton
-                    android:id="@+id/account_login_radio_btn"
-                    android:button="@null"
-                    style="@style/CommonRadioButton"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="@string/account_login"
-                    android:textSize="10pt"
-                    android:textColor="@color/common_radio_font_white_selector"/>
-                <RadioButton
-                    android:id="@+id/dynamic_login_radio_btn"
-                    android:button="@null"
-                    style="@style/CommonRadioButton"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:textSize="10pt"
-                    android:text="@string/dynamic_login"
-                    android:textColor="@color/common_radio_font_white_selector"/>
-            </RadioGroup>
+        <RadioGroup
+            android:id="@+id/login_rg"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="80dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+            <RadioButton
+                android:id="@+id/account_login_radio_btn"
+                android:button="@null"
+                style="@style/CommonRadioButton"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/account_login"
+                android:textSize="10pt"
+                android:textColor="@color/common_radio_font_white_selector"/>
+            <RadioButton
+                android:id="@+id/dynamic_login_radio_btn"
+                android:button="@null"
+                style="@style/CommonRadioButton"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:textSize="10pt"
+                android:text="@string/dynamic_login"
+                android:textColor="@color/common_radio_font_white_selector"/>
+        </RadioGroup>
         <RelativeLayout
             android:layout_width="340dp"
             android:layout_height="wrap_content"
