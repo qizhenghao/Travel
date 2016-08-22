@@ -40,18 +40,35 @@
             android:layout_width="fill_parent"
             android:layout_height="3dp"
             android:layout_below="@+id/tab_text_layout"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:hint="搜索"
-            android:paddingLeft="8dp"
-            android:textColor="@color/grey_c8"
-            android:background="@drawable/search_bg"
-            android:layout_below="@+id/tab_line_layout"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_below="@+id/tab_line_layout"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/search_bg">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="输入搜索内容"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="6dp"
+                android:textColor="@color/grey_e5"
+                android:background="@null"/>
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:gravity=""
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="2.5dp"
+                android:background="@drawable/search"/>
+        </RelativeLayout>
+
+        
 
     </com.bruce.travel.finds.view.FindTopTabLayout>
 

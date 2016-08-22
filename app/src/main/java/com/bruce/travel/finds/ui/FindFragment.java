@@ -51,7 +51,7 @@ public class FindFragment extends BaseFragment {
     @Override
     protected void initData() {
         fragments = new ArrayList<>();
-        fragments.add(TestFragment.newInstance("5"));
+        fragments.add(new LatestFragment());
         fragments.add(TestFragment.newInstance("6"));
         mAdapter = new FindFragmentPagerAdapter(getChildFragmentManager(),fragments);
         mViewPager.setAdapter(mAdapter);

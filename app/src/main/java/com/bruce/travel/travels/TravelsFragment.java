@@ -1,5 +1,6 @@
 package com.bruce.travel.travels;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.AbsListView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
+import com.bruce.travel.desktop.ui.DesktopActivity;
 import com.bruce.travel.travels.adapter.TravelsAdapter;
 import com.bruce.travel.travels.model.FilterData;
 import com.bruce.travel.travels.model.FilterEntity;
@@ -35,10 +37,11 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
 
     private ScrollOverListView mListView;
     private HeaderAdViewView headerAdViewView;
-    private HeaderChannelViewView headerChannelViewView;
+    private HeaderChannelViewView  headerChannelViewView;
     private HeaderFilterViewView headerFilterViewView;
     private TravelsAdapter mAdapter;
     private FilterData filterData;
+    private boolean isLogin;
 
 
     @Bind(R.id.fragment_travels_top_filter_view)
@@ -77,6 +80,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
 
     @Override
     protected void initData() {
+        isLogin = DesktopActivity.isLogin;
         mListView.setRefreshable(true);
         mListView.setOnPullDownListener(this);
 
@@ -201,7 +205,14 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         mWriteFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Methods.showToast("FAB", false);
+//                Methods.showToast("FAB", false);
+                if(isLogin) {
+                    Intent intent  = new Intent(getActivity(), NewRecordActivity.class);
+                    startActivity(intent);
+                } else {
+                    Methods.showToast("请先登录", false);
+                }
+
             }
         });
     }

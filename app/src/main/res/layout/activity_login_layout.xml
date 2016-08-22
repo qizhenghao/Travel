@@ -118,7 +118,7 @@
                         android:orientation="horizontal">
                         <EditText
                             android:id="@+id/dynamic_login_password_et"
-                            android:layout_width="210dp"
+                            android:layout_width="230dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="10dp"
                             android:background="@null"

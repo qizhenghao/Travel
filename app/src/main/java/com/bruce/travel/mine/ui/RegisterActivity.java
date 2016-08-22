@@ -12,8 +12,6 @@ import android.widget.Toast;
 import com.bruce.travel.R;
 import com.bruce.travel.db.MyDbHelper;
 import com.bruce.travel.desktop.ui.DesktopActivity;
-import com.bruce.travel.mine.data.AccountData;
-import com.bruce.travel.mine.data.CommonData;
 
 /**
  * Created by 梦亚 on 2016/8/7.
@@ -66,6 +64,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 db.insert(user_name, phone, password);
                 Intent intent = new Intent(RegisterActivity.this, DesktopActivity.class);
                 intent.putExtra("loginState",true);
+                intent.putExtra("username",user_name);
                 startActivity(intent);
                 finish();
                 break;

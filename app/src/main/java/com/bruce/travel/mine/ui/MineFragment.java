@@ -1,30 +1,35 @@
 package com.bruce.travel.mine.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
 import com.bruce.travel.desktop.ui.DesktopActivity;
+import com.bruce.travel.universal.utils.ImageUtils;
 
 /**
  * Created by 梦亚 on 2016/8/2.
  */
 public class MineFragment extends BaseFragment implements View.OnClickListener {
 
+    private static final int RESULT_CANCELED = 0;
+
     private boolean isLogin;
     private String username = null;
     private String username_unlogin = "用户名";
-    private Button login_btn, user_head;
+    private Button login_btn;
+    private ImageButton user_head;
     private Button msg_remind_btn;
     private LinearLayout my_collection_btn;
     private LinearLayout my_interest_btn;
@@ -32,6 +37,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout share_concern_info;
     private Button user_name;
     private View login_divider;
+
+
 
     @Nullable
     @Override
@@ -52,7 +59,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 
         my_interest_btn = (LinearLayout) mContentView.findViewById(R.id.my_interest_tab);
-        user_head = (Button) mContentView.findViewById(R.id.user_head_btn);
+        user_head = (ImageButton) mContentView.findViewById(R.id.user_head_btn);
         user_name = (Button) mContentView.findViewById(R.id.user_name_btn);
 
     }
@@ -88,6 +95,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         my_collection_btn.setOnClickListener(this);
         my_interest_btn.setOnClickListener(this);
         setting_btn.setOnClickListener(this);
+        user_head.setOnClickListener(this);
     }
 
     @Override
@@ -106,7 +114,50 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 Intent intent1 = new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent1);
                 break;
+            case R.id.user_head_btn:
+                ImageUtils.showImagePickDialog(getActivity());
         }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case ImageUtils.REQUEST_CODE_FROM_ALBUM: {
+
+                if (resultCode == RESULT_CANCELED) {   //取消操作
+                    return;
+                }
+
+                Uri imageUri = data.getData();
+                ImageUtils.copyImageUri(getActivity(),imageUri);
+                ImageUtils.cropImageUri(getActivity(), ImageUtils.getCurrentUri(), 200, 200);
+                break;
+            }
+            case ImageUtils.REQUEST_CODE_FROM_CAMERA: {
+
+                if (resultCode == RESULT_CANCELED) {     //取消操作
+                    ImageUtils.deleteImageUri(getContext(), ImageUtils.getCurrentUri());   //删除Uri
+                }
+
+                ImageUtils.cropImageUri(getActivity(), ImageUtils.getCurrentUri(), 200, 200);
+                break;
+            }
+            case ImageUtils.REQUEST_CODE_CROP: {
+
+                if (resultCode == RESULT_CANCELED) {     //取消操作
+                    return;
+                }
+
+                Uri imageUri = ImageUtils.getCurrentUri();
+                if (imageUri != null) {
+                    user_head.setImageURI(imageUri);
+                }
+                break;
+            }
+            default:
+                break;
+        }
     }
 }
