@@ -40,8 +40,7 @@
         <activity android:name=".mine.ui.LoginActivity"/>
         <activity android:name=".mine.ui.RegisterActivity"/>
         <activity android:name=".mine.ui.SettingActivity"/>
-        <activity android:name=".travels.NewRecordActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <activity android:name=".travels.NewRecordActivity"/>
     </application>
 
 </manifest>

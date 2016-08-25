@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <Button
-            android:id="@+id/return_btn"
+            android:id="@+id/return_desktop_btn"
             android:layout_width="18dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
@@ -26,6 +26,7 @@
             android:textSize="10pt"
             android:textColor="@color/font_black_0"/>
         <Button
+            android:id="@+id/save_record_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -35,27 +36,124 @@
             android:background="@null"
             android:textColor="@color/blue_light"/>
     </RelativeLayout>
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/record_title_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="vertical"
-        android:layout_below="@+id/action_bar_rl">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:hint="今天去哪里玩啦？"
-            android:background="@null"
-            android:focusable="true" />
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:background="@color/blue_light">
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/action_bar_rl">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标题:"
+            android:textSize="10pt"/>
+        <!--<EditText-->
+            <!--android:id="@+id/record_title_et"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:hint="大理古镇一日游"-->
+            <!--android:background="@null"/>-->
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/record_content_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/record_title_ll"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="6dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容:"
+            android:textSize="10pt"/>
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:fillViewport="true"-->
+            <!--android:scrollbars="vertical"-->
+            <!--android:layout_below="@+id/action_bar_rl">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/record_content_et"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="今天去哪里玩啦？"-->
+                <!--android:textSize="9pt"-->
+                <!--android:background="@null"/>-->
+        <!--</ScrollView>-->
+        <!--<Button-->
+            <!--android:layout_width=""-->
+            <!--android:layout_height="" />-->
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="按钮"
+        android:layout_below="@id/record_content_ll"/>
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_below="@+id/record_content_ll"-->
+        <!--android:background="@color/blue_light1"/>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_alignParentBottom="true">-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1">-->
+            <!--<Button-->
+                <!--android:id="@+id/local_time_btn"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@drawable/local_time_icon"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1">-->
+            <!--<Button-->
+                <!--android:id="@+id/location_btn"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@drawable/location_icon"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1">-->
+            <!--<Button-->
+                <!--android:id="@+id/voice_record_btn"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@drawable/voice_record_icon"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1">-->
+            <!--<Button-->
+                <!--android:id="@+id/photo_select_btn"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@drawable/photo_select_icon"/>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 </RelativeLayout>

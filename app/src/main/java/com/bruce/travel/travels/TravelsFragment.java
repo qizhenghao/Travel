@@ -205,13 +205,12 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         mWriteFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Methods.showToast("FAB", false);
-                if(isLogin) {
+//                if(isLogin) {
                     Intent intent  = new Intent(getActivity(), NewRecordActivity.class);
                     startActivity(intent);
-                } else {
-                    Methods.showToast("请先登录", false);
-                }
+//                } else {
+//                    Methods.showToast("请先登录", false);
+//                }
 
             }
         });
