@@ -44,6 +44,7 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_record_layout);
 //        ButterKnife.bind(this);
+        init();//初始化，看看baseActivity，你不调用它，下面initviews等方法都不执行
     }
 
     @Override
