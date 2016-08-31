@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.bruce.travel.R;
 import com.bruce.travel.db.MyDbHelper;
-import com.bruce.travel.desktop.ui.DesktopActivity;
+import com.bruce.travel.desktop.DesktopActivity;
 
 /**
  * Created by 梦亚 on 2016/8/7.

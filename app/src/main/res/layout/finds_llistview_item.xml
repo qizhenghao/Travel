@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/record_bg_rl"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="160dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/blue_light1">
@@ -15,10 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/white"/>
+            android:layout_marginLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/title_tv"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="8dp">
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
@@ -44,7 +44,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:paddingLeft="15dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="3dp"
             android:src="@color/font_black_6"/>
         <LinearLayout
             android:layout_width="wrap_content"

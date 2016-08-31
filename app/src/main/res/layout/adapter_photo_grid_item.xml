@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.bruce.travel.universal.photopicker.view.SquareLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.bruce.travel.universal.photopicker.view.SquareImageView
+
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"/>
+        <Button
+            android:id="@+id/btn_del"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:background="@drawable/photo_del_black"
+            android:layout_alignParentRight="true"
+            />
+
+    </com.bruce.travel.universal.photopicker.view.SquareLayout>
+
+</LinearLayout>

@@ -9,8 +9,9 @@ import android.widget.ListView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
-import com.bruce.travel.finds.adapter.FindsListAdapter;
-import com.bruce.travel.finds.model.FindsInfo;
+import com.bruce.travel.finds.adapter.TravelNotesAdapter;
+import com.bruce.travel.finds.model.TravelNotesInfo;
+import com.bruce.travel.universal.utils.ModelUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,8 @@ import java.util.List;
 public class LatestFragment extends BaseFragment{
 
     private ListView latestLv;
-    private List<FindsInfo> findsList;
-    private FindsListAdapter findsAdapter;
+    private List<TravelNotesInfo> travelList;
+    private TravelNotesAdapter travelAdapter;
 
 
     @Nullable
@@ -39,16 +40,9 @@ public class LatestFragment extends BaseFragment{
 
     @Override
     protected void initData() {
-        findsList = new ArrayList<>();
-        for(int i = 0;i < 10 ;i++) {
-            FindsInfo findsInfo = new FindsInfo();
-            findsInfo.setTitle(i+"");
-            findsInfo.setLocation("beijingshi");
-            findsList.add(findsInfo);
-        }
-
-        findsAdapter = new FindsListAdapter(mActivity,findsList);
-        latestLv.setAdapter(findsAdapter);
+        travelList = new ArrayList<>();
+        travelAdapter = new TravelNotesAdapter(mActivity, ModelUtil.getTraveNotesData());
+        latestLv.setAdapter(travelAdapter);
 
 
     }

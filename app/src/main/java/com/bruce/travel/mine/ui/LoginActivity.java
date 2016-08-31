@@ -2,7 +2,6 @@ package com.bruce.travel.mine.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.usage.UsageEvents;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,9 +20,7 @@ import android.widget.Toast;
 
 import com.bruce.travel.R;
 import com.bruce.travel.db.MyDbHelper;
-import com.bruce.travel.desktop.ui.DesktopActivity;
-
-import org.json.JSONObject;
+import com.bruce.travel.desktop.DesktopActivity;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;

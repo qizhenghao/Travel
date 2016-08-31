@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <ImageButton
+            <ImageView
                 android:id="@+id/user_head_btn"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -55,6 +55,11 @@
                 android:layout_marginLeft="15dp"
                 android:layout_gravity="center_vertical"
                 android:visibility="gone"/>
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lalala"/>
         </LinearLayout>
 
         <Button

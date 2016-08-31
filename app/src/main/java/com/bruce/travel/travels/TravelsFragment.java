@@ -10,7 +10,7 @@ import android.widget.AbsListView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
-import com.bruce.travel.desktop.ui.DesktopActivity;
+import com.bruce.travel.desktop.DesktopActivity;
 import com.bruce.travel.travels.adapter.TravelsAdapter;
 import com.bruce.travel.travels.model.FilterData;
 import com.bruce.travel.travels.model.FilterEntity;
@@ -20,7 +20,6 @@ import com.bruce.travel.travels.view.FilterView;
 import com.bruce.travel.travels.view.HeaderAdViewView;
 import com.bruce.travel.travels.view.HeaderChannelViewView;
 import com.bruce.travel.travels.view.HeaderFilterViewView;
-import com.bruce.travel.universal.utils.Methods;
 import com.bruce.travel.universal.utils.ModelUtil;
 import com.bruce.travel.universal.view.FloatingActionButton;
 import com.bruce.travel.universal.view.ScrollOverListView;

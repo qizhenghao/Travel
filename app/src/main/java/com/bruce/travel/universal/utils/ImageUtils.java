@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +22,7 @@ public class ImageUtils {
     public static final int REQUEST_CODE_FROM_ALBUM = 5002;
     public static final int REQUEST_CODE_CROP = 5003;
 
-    private Context mContext;
+    private static Context mContext;
 
 
     /**

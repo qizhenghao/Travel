@@ -12,11 +12,8 @@ import android.view.ViewGroup;
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
 import com.bruce.travel.desktop.TestFragment;
-import com.bruce.travel.desktop.adapter.DesktopFragmentAdapter;
-import com.bruce.travel.desktop.view.TabViewPager;
 import com.bruce.travel.finds.adapter.FindFragmentPagerAdapter;
 import com.bruce.travel.finds.view.FindTopTabLayout;
-import com.bruce.travel.travels.TravelsFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,12 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.bruce.travel.R;
-import com.bruce.travel.desktop.ui.DesktopActivity;
+import com.bruce.travel.desktop.DesktopActivity;
 import com.bruce.travel.mine.adapter.CommonListAdapter;
 
 /**

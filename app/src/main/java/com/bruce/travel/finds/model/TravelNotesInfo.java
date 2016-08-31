@@ -1,0 +1,97 @@
+package com.bruce.travel.finds.model;
+
+import android.widget.ImageView;
+
+import java.io.Serializable;
+
+/**
+ * Created by 梦亚 on 2016/8/25.
+ */
+public class TravelNotesInfo implements Serializable, Comparable<TravelNotesInfo> {
+    private String title;
+    private String location;
+    private int icon;
+    private String account;
+    private String date;
+    private String bg_url;
+    private int seen;
+    private int msg;
+    private int like;
+
+    private boolean isNoData = false;
+    private int height;
+    public TravelNotesInfo(){
+
+    }
+
+    public TravelNotesInfo(String title, String location, int icon, String account, String date, String bg_url) {
+        this.title = title;
+        this.location = location;
+        this.icon = icon;
+        this.account =account;
+        this.date = date;
+        this.bg_url = bg_url;
+    }
+
+    public boolean isNoData() {
+        return isNoData;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setDate (String date) {
+        this.date  = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+
+    public String getBg_url() {
+        return bg_url;
+    }
+
+
+
+    @Override
+    public int compareTo(TravelNotesInfo another) {
+        return 0;
+    }
+}

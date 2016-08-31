@@ -152,4 +152,10 @@
             <enum name="mini" value="1" />
         </attr>
     </declare-styleable>
+
+    <style name="dialog_fullscreen">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>

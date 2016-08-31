@@ -1,7 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:id="@+id/desktop_container"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/mainLayout"
              android:layout_width="match_parent"
              android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <RelativeLayout
+            android:id="@+id/fragment_travels_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-</FrameLayout>
+            <Button
+                android:id="@+id/travels_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/travels_tab_bg_selector"
+                android:onClick="onTabClicked"
+                android:paddingBottom="3dp"
+                android:paddingTop="4dp"
+                android:scaleType="matrix"
+                android:text="游记"
+                android:textColor="@color/main_tab_text_color_selector"
+                android:textSize="12sp"
+                android:background="@color/white"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_find_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/find_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/find_tab_bg_selector"
+                android:onClick="onTabClicked"
+                android:paddingBottom="3dp"
+                android:paddingTop="4dp"
+                android:scaleType="matrix"
+                android:text="发现"
+                android:textColor="@color/main_tab_text_color_selector"
+                android:textSize="12sp"
+                android:background="@color/white"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_destination_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/destination_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/destination_tab_bg_selector"
+                android:onClick="onTabClicked"
+                android:paddingBottom="3dp"
+                android:paddingTop="4dp"
+                android:scaleType="matrix"
+                android:text="目的地"
+                android:textColor="@color/main_tab_text_color_selector"
+                android:textSize="12sp"
+                android:background="@color/white"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_mine_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/mine_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/mine_tab_bg_selector"
+                android:onClick="onTabClicked"
+                android:paddingBottom="3dp"
+                android:paddingTop="4dp"
+                android:scaleType="matrix"
+                android:text="我的"
+                android:textColor="@color/main_tab_text_color_selector"
+                android:textSize="12sp"
+                android:background="@color/white"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view_temp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey_d2"
+        android:layout_above="@id/main_bottom" />
+    <RelativeLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/view_temp" />
+
+</RelativeLayout>
