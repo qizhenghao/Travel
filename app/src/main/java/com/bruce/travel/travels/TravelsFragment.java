@@ -71,7 +71,8 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
 
     @Override
     protected void initView() {
-        mListView = (ScrollOverListView) mContentView.findViewById(R.id.fragment_travels_lv);
+//        mListView = (ScrollOverListView) mContentView.findViewById(R.id.fragment_travels_lv);
+        mListView = findView(R.id.fragment_travels_lv);
         headerAdViewView = new HeaderAdViewView(mActivity);
         headerChannelViewView = new HeaderChannelViewView(mActivity);
         headerFilterViewView = new HeaderFilterViewView(mActivity);

@@ -60,6 +60,10 @@ public abstract class BaseFragment extends Fragment {
      */
     abstract protected void initListener();
 
+    public <T> T findView(int id) {
+        return (T) mContentView.findViewById(id);
+    }
+
     /**
      * 刷新，在需要刷新fragment的时候自行调用
      */
