@@ -73,6 +73,7 @@ public class TravelNotesAdapter extends BaseListAdapter<TravelNotesInfo> {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.finds_llistview_item, null);
             holder.record_bg = (RelativeLayout) convertView.findViewById(R.id.record_bg_rl);
+            holder.bgIv = (ImageView) convertView.findViewById(R.id.record_bg_iv);
             holder.title = (TextView) convertView.findViewById(R.id.title_tv);
             holder.location = (TextView) convertView.findViewById(R.id.location_tv);
             holder.icon = (ImageView) convertView.findViewById(R.id.user_icon);
@@ -87,8 +88,8 @@ public class TravelNotesAdapter extends BaseListAdapter<TravelNotesInfo> {
         holder.location.setText(infos.getLocation());
         holder.date.setText(infos.getDate());
         holder.account.setText(infos.getAccount());
-        holder.record_bg.setBackgroundResource(infos.getBg());
-
+//        holder.record_bg.setBackgroundResource(infos.getBg());
+        mImageManager.loadRoundedCornerResImage(infos.getBg(), holder.bgIv);
 //        holder.record_bg.setBackground(mImageManager.loadUrlImage(infos.getBg_url()));
         mImageManager.loadCircleResImage(infos.getIcon(),holder.icon);
         return convertView;
@@ -96,6 +97,7 @@ public class TravelNotesAdapter extends BaseListAdapter<TravelNotesInfo> {
 
     class ViewHolder {
         RelativeLayout record_bg;
+        ImageView bgIv;
         TextView title;
         TextView location;
         ImageView icon;

@@ -10,7 +10,6 @@ import com.bruce.travel.R;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -93,6 +92,27 @@ public class ImageManager {
                 .into(imageView);
     }
 
+    // 加载网络圆角型图片
+    public void loadRoundCornerImage(String url, ImageView imageView) {
+        Glide.with(mContext)
+                .load(url)
+                .placeholder(R.color.font_black_6)
+                .error(R.color.font_black_6)
+                .crossFade()
+                .transform(new GlideRoundCornerTransform(mContext))
+                .into(imageView);
+    }
+
+    // 加载drawable圆角型图片
+    public void loadRoundedCornerResImage(int resId, ImageView imageView) {
+        Glide.with(mContext)
+                .load(resourceIdToUri(resId))
+                .placeholder(R.color.font_black_6)
+                .error(R.color.font_black_6)
+                .crossFade()
+                .transform(new GlideRoundCornerTransform(mContext))
+                .into(imageView);
+    }
     public Drawable loadImageFromNetwork(String imageUrl)
     {
         Drawable drawable = null;

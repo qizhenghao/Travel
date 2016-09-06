@@ -205,14 +205,15 @@
                     android:id="@+id/date_pick_confirm_btn"
                     android:layout_width="55dp"
                     android:layout_height="32dp"
-                    android:background="@drawable/common_btn_blue_normal"
+                    style="@style/common_blue_small_button"
                     android:layout_toLeftOf="@+id/date_pick_cancel_btn"
                     android:layout_marginRight="6dp"
                     android:text="确定"/>
                 <Button
                     android:id="@+id/date_pick_cancel_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="55dp"
+                    android:layout_height="32dp"
+                    style="@style/common_white_small_button"
                     android:background="@null"
                     android:layout_alignParentRight="true"
                     android:text="取消"/>

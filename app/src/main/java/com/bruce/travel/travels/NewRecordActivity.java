@@ -180,7 +180,7 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         return_btn.setOnClickListener(this);
         cancel_tv.setOnClickListener(this);
         time_confirm_btn.setOnClickListener(this);
-
+        findViewById(R.id.date_pick_cancel_btn).setOnClickListener(this);
     }
 
 
@@ -197,7 +197,11 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.date_pick_confirm_btn:
                 pickTimeStr = timePicker.getPickTime();
+                time_picker_ll.setVisibility(View.GONE);
                 Methods.showToast(pickTimeStr, true);
+                break;
+            case R.id.date_pick_cancel_btn:
+                time_picker_ll.setVisibility(View.GONE);
                 break;
             case R.id.location_btn:
                 InitLocation();
