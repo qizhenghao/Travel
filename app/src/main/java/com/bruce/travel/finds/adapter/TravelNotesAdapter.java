@@ -1,6 +1,8 @@
 package com.bruce.travel.finds.adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import com.bruce.travel.finds.model.TravelNotesInfo;
 import com.bruce.travel.travels.adapter.BaseListAdapter;
 import com.bruce.travel.travels.model.TravelsEntity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +65,7 @@ public class TravelNotesAdapter extends BaseListAdapter<TravelNotesInfo> {
         return emptyList;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder  = null;
@@ -85,7 +89,9 @@ public class TravelNotesAdapter extends BaseListAdapter<TravelNotesInfo> {
         holder.location.setText(infos.getLocation());
         holder.date.setText(infos.getDate());
         holder.account.setText(infos.getAccount());
-//        mImageManager.loadUrlImage(infos.getBg_url(), holder.record_bg);
+        holder.record_bg.setBackgroundResource(infos.getBg());
+
+//        holder.record_bg.setBackground(mImageManager.loadUrlImage(infos.getBg_url()));
         mImageManager.loadCircleResImage(infos.getIcon(),holder.icon);
         return convertView;
     }

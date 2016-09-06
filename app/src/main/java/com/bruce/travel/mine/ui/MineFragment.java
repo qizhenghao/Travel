@@ -38,8 +38,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private String username = null;
     private String username_unlogin = "用户名";
     private Button login_btn;
-    private ImageView user_head;
-    private Button btn;
+    private ImageButton user_head;
     private Button msg_remind_btn;
     private LinearLayout my_collection_btn;
     private LinearLayout my_interest_btn;
@@ -87,9 +86,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 
         my_interest_btn = (LinearLayout) mContentView.findViewById(R.id.my_interest_tab);
-        user_head = (ImageView) mContentView.findViewById(R.id.user_head_btn);
+        user_head = (ImageButton) mContentView.findViewById(R.id.user_head_btn);
         user_name = (Button) mContentView.findViewById(R.id.user_name_btn);
-        btn = (Button) mContentView.findViewById(R.id.btn);
 
     }
 
@@ -124,7 +122,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         my_collection_btn.setOnClickListener(this);
         my_interest_btn.setOnClickListener(this);
         setting_btn.setOnClickListener(this);
-        btn.setOnClickListener(this);
+        user_head.setOnClickListener(this);
     }
 
     @Override
@@ -144,7 +142,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 Intent intent1 = new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent1);
                 break;
-            case R.id.btn:
+            case R.id.user_head_btn:
                 new AlertDialog.Builder(v.getContext()).setTitle("单选框").setSingleChoiceItems(
                         new String[]{"系统相机", "系统相册"}, -1,
                         new DialogInterface.OnClickListener() {

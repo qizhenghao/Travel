@@ -56,8 +56,9 @@
                 android:hint="输入搜索内容"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="6dp"
-                android:textColor="@color/grey_e5"
-                android:background="@null"/>
+                android:textColor="@color/font_grey_ca"
+                android:background="@null"
+                android:textSize="8.5pt"/>
             <Button
                 android:layout_width="25dp"
                 android:layout_height="25dp"

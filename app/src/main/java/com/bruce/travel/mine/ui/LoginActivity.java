@@ -183,6 +183,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 
                 }
 
+                finish();
                 break;
 
             case R.id.send_dynamic_password_btn:
@@ -232,6 +233,7 @@ public class LoginActivity extends Activity implements OnClickListener {
             case R.id.register_new_account_btn:
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
 

@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -21,12 +22,16 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseActivity;
+import com.bruce.travel.travels.view.PopWindowView;
+import com.bruce.travel.travels.view.TimePickerView;
 import com.bruce.travel.universal.photopicker.camera.PhotoPickManger;
 import com.bruce.travel.universal.photopicker.tools.PhotoGridManager;
 import com.bruce.travel.universal.photopicker.tools.SimpleImageLoader;
+import com.bruce.travel.universal.utils.Methods;
 
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -53,6 +58,10 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     TextView location_tv;
     @Bind(R.id.cancel_tv)
     TextView cancel_tv;
+    @Bind(R.id.time_picker_ll)
+    LinearLayout time_picker_ll;
+    @Bind(R.id.date_pick_confirm_btn)
+    Button time_confirm_btn;
 
     private GridView photo_gv;
     private EditText title_et;
@@ -69,6 +78,9 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     private LocationMode tempMode = LocationMode.Hight_Accuracy;
     private String tempcoor = "gcj02";
     private String myLocation;
+    TimePickerView timePicker;
+    private String pickTimeStr;
+
 
 
     @Override
@@ -106,11 +118,39 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         photo_gv = (GridView) findViewById(R.id.photo_display_gridview);
         imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
+        timePicker = (TimePickerView) findViewById(R.id.time_picker);
+
+        final PopWindowView popWindow = new PopWindowView(this, R.layout.popwindow_add_layout, new PopWindowView.OnItemClickListener(){
+            @Override
+            public void onClick(int position) {
+                switch (position) {
+                    case 0:
+                        Methods.showToast("lalala111",false);
+                        break;
+                    case 1:
+                        Methods.showToast("lalala222",false);
+                        break;
+                }
+            }
+        });
+
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popWindow.showPopupWindow(save_btn);
+            }
+        });
+
+
+
     }
 
     @Override
     protected void initData() {
         title_et.setFocusable(true);
+
+        timePicker.setDate(new Date().getTime());
+
         title_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -138,8 +178,8 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         voice_record_btn.setOnClickListener(this);
         photo_select_btn.setOnClickListener(this);
         return_btn.setOnClickListener(this);
-        save_btn.setOnClickListener(this);
         cancel_tv.setOnClickListener(this);
+        time_confirm_btn.setOnClickListener(this);
 
     }
 
@@ -152,6 +192,12 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
                 imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
                 break;
             case R.id.local_time_btn:
+                time_picker_ll.setVisibility(View.VISIBLE);
+                imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+                break;
+            case R.id.date_pick_confirm_btn:
+                pickTimeStr = timePicker.getPickTime();
+                Methods.showToast(pickTimeStr, true);
                 break;
             case R.id.location_btn:
                 InitLocation();

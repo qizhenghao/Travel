@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:background="@color/blue_light1">
         <Button
             android:id="@+id/return_desktop_btn"
             android:layout_width="18dp"
@@ -27,14 +28,12 @@
             android:textColor="@color/font_black_0"/>
         <Button
             android:id="@+id/save_record_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
             android:layout_alignParentBottom="true"
-            android:text="保存"
-            android:textSize="9pt"
-            android:background="@null"
-            android:textColor="@color/blue_light"/>
+            android:background="@drawable/record_save1_btn"/>
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/record_title_ll"
@@ -170,16 +169,60 @@
             android:layout_height="0.6dp"
             android:background="@color/grey_d2" />
 
-            <GridView
-                android:id="@+id/photo_display_gridview"
+        <GridView
+            android:id="@+id/photo_display_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:numColumns="4"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="8dp"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:id="@+id/time_picker_ll"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:visibility="gone">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="5dp"
-                android:numColumns="4"
-                android:stretchMode="columnWidth"
-                android:verticalSpacing="8dp"
-                android:visibility="gone"/>
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="设置时间"
+                    android:textSize="9pt"/>
+
+                <Button
+                    android:id="@+id/date_pick_confirm_btn"
+                    android:layout_width="55dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/common_btn_blue_normal"
+                    android:layout_toLeftOf="@+id/date_pick_cancel_btn"
+                    android:layout_marginRight="6dp"
+                    android:text="确定"/>
+                <Button
+                    android:id="@+id/date_pick_cancel_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:text="取消"/>
+            </RelativeLayout>
+            <com.bruce.travel.travels.view.TimePickerView
+                android:id="@+id/time_picker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:gravity="center"/>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -88,18 +88,15 @@ public class ModelUtil {
         return travelingList;
     }
 
-    public static List<TravelNotesInfo> getTraveNotesData() {
+    public static List<TravelNotesInfo> getTravelNotesData() {
         List<TravelNotesInfo> travelNotesList = new ArrayList<>();
-        travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","呼伦贝尔", R.drawable.user_icon,"柠檬","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/500fd9f9d72a60597f053a482034349b033bba4f.jpg"));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"可乐","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/86d6277f9e2f07080a45f152e124b899a901f224.jpg"));
-        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"小九","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/500fd9f9d72a60597f053a482034349b033bba4f.jpg"));
-        travelNotesList.add(new TravelNotesInfo("2016我们在厦门","厦门", R.drawable.user_icon,"兰","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/7c1ed21b0ef41bd5721033a659da81cb39db3d25.jpg"));
-        travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","呼伦贝尔", R.drawable.user_icon,"小九","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/500fd9f9d72a60597f053a482034349b033bba4f.jpg"));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"可乐","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/8694a4c27d1ed21bd370f5b7a56eddc451da3f23.jpg"));
-        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"缘","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/86d6277f9e2f07080a45f152e124b899a901f224.jpg"));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"兰","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/b90e7bec54e736d1a43c575a93504fc2d56269b1.jpg"));
-        travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","呼伦贝尔", R.drawable.user_icon,"小九","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/500fd9f9d72a60597f053a482034349b033bba4f.jpg"));
-        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"柠檬","16-06-18","https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/b90e7bec54e736d1a43c575a93504fc2d56269b1.jpg"));
+        travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","青海湖", R.drawable.user_icon,"柠檬","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
+        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"小九","16-06-18",R.drawable.travel_detail_bg4));
+        travelNotesList.add(new TravelNotesInfo("2016我们在厦门","厦门", R.drawable.user_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
+        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"缘","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
         return travelNotesList;
     }
 

@@ -3,31 +3,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="horizontal">
-
-    <ListView
-        android:id="@+id/fragment_destination_title_lv"
-        android:layout_width="0dp"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/destination_header_bg">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/search_bg">
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/search"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="输入目的地"
+                android:textColor="@color/font_grey_ca"
+                android:background="@null"
+                android:layout_toRightOf="@+id/search_icon"
+                android:layout_marginLeft="6dp"
+                android:textSize="8.5pt"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/grey_f2"
-        android:cacheColorHint="@color/transparent"
-        android:divider="@null"
-        android:fadingEdge="none"
-        android:listSelector="@color/transparent"
-        android:scrollbars="none">
-    </ListView>
+        android:orientation="horizontal">
+        <ListView
+            android:id="@+id/fragment_destination_title_lv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/grey_f2"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none">
+        </ListView>
 
-    <ListView
-        android:id="@+id/fragment_destination_detail_lv"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:background="@color/white"
-        android:cacheColorHint="@color/transparent"
-        android:divider="@null"
-        android:fadingEdge="none"
-        android:listSelector="@color/transparent"
-        android:scrollbars="none">
-    </ListView>
+        <ListView
+            android:id="@+id/fragment_destination_detail_lv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@color/white"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none">
+        </ListView>
+    </LinearLayout>
+
+
 </LinearLayout>

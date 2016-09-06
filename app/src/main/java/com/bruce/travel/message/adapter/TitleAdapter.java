@@ -53,10 +53,10 @@ public class TitleAdapter extends BaseAdapter {
             holder = (GroupItemHolder) convertView.getTag();
         }
         if (position == mSelectedItem) {
-            holder.tv.setTextColor(Color.WHITE);
-            holder.tv.setBackgroundResource(R.color.blue_light);
+            holder.tv.setTextColor(Color.BLACK);
+            holder.tv.setBackgroundResource(R.color.white);
         } else {
-            holder.tv.setTextColor(mContext.getResources().getColor(R.color.font_black_28));
+            holder.tv.setTextColor(mContext.getResources().getColor(R.color.font_black_38));
             holder.tv.setBackgroundResource(0);
         }
         holder.tv.setText(info.name);

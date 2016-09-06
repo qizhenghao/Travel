@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <com.bruce.travel.travels.view.WheelView
+            android:id="@+id/year"
+            style="@style/wheelViewStyle" />
+
+        <com.bruce.travel.travels.view.WheelView
+            android:id="@+id/month"
+            style="@style/wheelViewStyle" />
+
+        <com.bruce.travel.travels.view.WheelView
+            android:id="@+id/day"
+            style="@style/wheelViewStyle" />
+
+        <com.bruce.travel.travels.view.WheelView
+            android:id="@+id/hour"
+            style="@style/wheelViewStyle" />
+    </LinearLayout>
+</LinearLayout>

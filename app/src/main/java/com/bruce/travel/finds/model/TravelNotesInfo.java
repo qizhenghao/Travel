@@ -14,7 +14,8 @@ public class TravelNotesInfo implements Serializable, Comparable<TravelNotesInfo
     private String account;
     private String date;
     private String bg_url;
-    private int seen;
+    private int bg;
+    private String seen;
     private int msg;
     private int like;
 
@@ -24,13 +25,13 @@ public class TravelNotesInfo implements Serializable, Comparable<TravelNotesInfo
 
     }
 
-    public TravelNotesInfo(String title, String location, int icon, String account, String date, String bg_url) {
+    public TravelNotesInfo(String title, String location, int icon, String account, String date, int bg) {
         this.title = title;
         this.location = location;
         this.icon = icon;
         this.account =account;
         this.date = date;
-        this.bg_url = bg_url;
+        this.bg = bg;
     }
 
     public boolean isNoData() {
@@ -65,7 +66,9 @@ public class TravelNotesInfo implements Serializable, Comparable<TravelNotesInfo
         return icon;
     }
 
-
+    public int getBg() {
+        return bg;
+    }
 
     public void setAccount(String account) {
         this.account = account;
@@ -83,9 +86,8 @@ public class TravelNotesInfo implements Serializable, Comparable<TravelNotesInfo
         return date;
     }
 
-
-    public String getBg_url() {
-        return bg_url;
+    public String getSeen() {
+        return seen;
     }
 
 

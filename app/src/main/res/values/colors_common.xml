@@ -49,6 +49,7 @@
     <color name="font_grey_ca">#cacaca</color>
     <color name="font_black_50">#505050</color>
     <color name="font_black_28">#282828</color>
+    <color name="font_black_38">#383838</color>
     <color name="font_black_17">#171717</color>
     <color name="font_black_17_pressed">#80171717</color>
     <color name="font_grey_cb_pressed">#80cbcbcb</color>

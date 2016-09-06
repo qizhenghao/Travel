@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
@@ -20,10 +21,12 @@ import com.bruce.travel.travels.view.FilterView;
 import com.bruce.travel.travels.view.HeaderAdViewView;
 import com.bruce.travel.travels.view.HeaderChannelViewView;
 import com.bruce.travel.travels.view.HeaderFilterViewView;
+import com.bruce.travel.universal.utils.Methods;
 import com.bruce.travel.universal.utils.ModelUtil;
 import com.bruce.travel.universal.view.FloatingActionButton;
 import com.bruce.travel.universal.view.ScrollOverListView;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import butterknife.Bind;
@@ -102,6 +105,13 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         mListView.setAdapter(mAdapter);
 
         filterViewPosition = mListView.getHeaderViewsCount() - 1;
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Methods.showToast(mListView.getItemAtPosition(position)+"lala",false);
+            }
+        });
     }
 
     @Override
