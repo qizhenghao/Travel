@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 
 import com.bruce.travel.R;
-import com.bruce.travel.travels.model.FilterEntity;
+import com.bruce.travel.travels.been.FilterBean;
 
 import java.util.List;
 
@@ -19,21 +19,21 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/4/23.
  */
-public class FilterOneAdapter extends BaseListAdapter<FilterEntity> {
+public class FilterOneAdapter extends BaseListAdapter<FilterBean> {
 
-    private FilterEntity selectedEntity;
+    private FilterBean selectedEntity;
 
     public FilterOneAdapter(Context context) {
         super(context);
     }
 
-    public FilterOneAdapter(Context context, List<FilterEntity> list) {
+    public FilterOneAdapter(Context context, List<FilterBean> list) {
         super(context, list);
     }
 
-    public void setSelectedEntity(FilterEntity filterEntity) {
+    public void setSelectedEntity(FilterBean filterEntity) {
         this.selectedEntity = filterEntity;
-        for (FilterEntity entity : getData()) {
+        for (FilterBean entity : getData()) {
             entity.setSelected(entity.getKey().equals(selectedEntity.getKey()));
         }
         notifyDataSetChanged();
@@ -50,7 +50,7 @@ public class FilterOneAdapter extends BaseListAdapter<FilterEntity> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        FilterEntity entity = getItem(position);
+        FilterBean entity = getItem(position);
 
         holder.tvTitle.setText(entity.getKey());
         if (entity.isSelected()) {

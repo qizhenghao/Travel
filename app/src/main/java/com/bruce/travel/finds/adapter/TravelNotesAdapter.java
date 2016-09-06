@@ -13,9 +13,7 @@ import android.widget.TextView;
 import com.bruce.travel.R;
 import com.bruce.travel.finds.model.TravelNotesInfo;
 import com.bruce.travel.travels.adapter.BaseListAdapter;
-import com.bruce.travel.travels.model.TravelsEntity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.bruce.travel.travels.model;
+package com.bruce.travel.travels.been;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,17 +6,17 @@ import java.util.List;
 /**
  * Created by sunfusheng on 16/4/23.
  */
-public class FilterTwoEntity implements Serializable {
+public class FilterTwoBean implements Serializable {
 
     private String type;
-    private List<FilterEntity> list;
+    private List<FilterBean> list;
     private boolean isSelected;
-    private FilterEntity selectedFilterEntity;
+    private FilterBean selectedFilterEntity;
 
-    public FilterTwoEntity() {
+    public FilterTwoBean() {
     }
 
-    public FilterTwoEntity(String type, List<FilterEntity> list) {
+    public FilterTwoBean(String type, List<FilterBean> list) {
         this.type = type;
         this.list = list;
     }
@@ -29,11 +29,11 @@ public class FilterTwoEntity implements Serializable {
         this.type = type;
     }
 
-    public FilterEntity getSelectedFilterEntity() {
+    public FilterBean getSelectedFilterEntity() {
         return selectedFilterEntity;
     }
 
-    public void setSelectedFilterEntity(FilterEntity selectedFilterEntity) {
+    public void setSelectedFilterEntity(FilterBean selectedFilterEntity) {
         this.selectedFilterEntity = selectedFilterEntity;
     }
 
@@ -45,11 +45,11 @@ public class FilterTwoEntity implements Serializable {
         isSelected = selected;
     }
 
-    public List<FilterEntity> getList() {
+    public List<FilterBean> getList() {
         return list;
     }
 
-    public void setList(List<FilterEntity> list) {
+    public void setList(List<FilterBean> list) {
         this.list = list;
     }
 }

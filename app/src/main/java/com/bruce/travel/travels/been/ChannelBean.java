@@ -1,20 +1,20 @@
-package com.bruce.travel.travels.model;
+package com.bruce.travel.travels.been;
 
 import java.io.Serializable;
 
 /**
  * Created by sunfusheng on 16/4/20.
  */
-public class ChannelEntity implements Serializable {
+public class ChannelBean implements Serializable {
 
     private String title;
     private String tips;
     private String image_url;
 
-    public ChannelEntity() {
+    public ChannelBean() {
     }
 
-    public ChannelEntity(String title, String tips, String image_url) {
+    public ChannelBean(String title, String tips, String image_url) {
         this.title = title;
         this.tips = tips;
         this.image_url = image_url;

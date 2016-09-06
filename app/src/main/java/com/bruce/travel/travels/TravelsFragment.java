@@ -11,22 +11,23 @@ import android.widget.AdapterView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
+import com.bruce.travel.travels.been.TravelsBean;
+import com.bruce.travel.travels.listener.OnGetDataListener;
 import com.bruce.travel.desktop.DesktopActivity;
 import com.bruce.travel.travels.adapter.TravelsAdapter;
-import com.bruce.travel.travels.model.FilterData;
-import com.bruce.travel.travels.model.FilterEntity;
-import com.bruce.travel.travels.model.FilterTwoEntity;
-import com.bruce.travel.travels.model.TravelsEntity;
+import com.bruce.travel.travels.been.FilterBean;
+import com.bruce.travel.travels.been.FilterTwoBean;
+import com.bruce.travel.travels.been.TravelFragmentData;
+import com.bruce.travel.travels.model.ITravelModel;
+import com.bruce.travel.travels.model.ITravelModelImpl;
 import com.bruce.travel.travels.view.FilterView;
 import com.bruce.travel.travels.view.HeaderAdViewView;
 import com.bruce.travel.travels.view.HeaderChannelViewView;
 import com.bruce.travel.travels.view.HeaderFilterViewView;
-import com.bruce.travel.universal.utils.Methods;
 import com.bruce.travel.universal.utils.ModelUtil;
 import com.bruce.travel.universal.view.FloatingActionButton;
 import com.bruce.travel.universal.view.ScrollOverListView;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 import butterknife.Bind;
@@ -35,14 +36,16 @@ import butterknife.ButterKnife;
 /**
  * Created by qizhenghao on 16/8/1.
  */
-public class TravelsFragment extends BaseFragment implements ScrollOverListView.OnPullDownListener {
+public class TravelsFragment extends BaseFragment implements ScrollOverListView.OnPullDownListener, OnGetDataListener<TravelFragmentData> {
+
+    private ITravelModel iTravelModel;
+    private TravelFragmentData travelFragmentData;
 
     private ScrollOverListView mListView;
     private HeaderAdViewView headerAdViewView;
     private HeaderChannelViewView  headerChannelViewView;
     private HeaderFilterViewView headerFilterViewView;
     private TravelsAdapter mAdapter;
-    private FilterData filterData;
     private boolean isLogin;
 
 
@@ -79,43 +82,54 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         headerAdViewView = new HeaderAdViewView(mActivity);
         headerChannelViewView = new HeaderChannelViewView(mActivity);
         headerFilterViewView = new HeaderFilterViewView(mActivity);
+
+        mListView.setRefreshable(true);
+        mListView.setOnPullDownListener(this);
+        fvTopFilter.setVisibility(View.GONE);
     }
 
     @Override
     protected void initData() {
         isLogin = DesktopActivity.isLogin;
-        mListView.setRefreshable(true);
-        mListView.setOnPullDownListener(this);
 
-        fvTopFilter.setVisibility(View.GONE);
-        // 设置筛选数据
-        // 筛选数据
-        filterData = new FilterData();
-        filterData.setCategory(ModelUtil.getCategoryData());
-        filterData.setSorts(ModelUtil.getSortData());
-        filterData.setFilters(ModelUtil.getFilterData());
-        fvTopFilter.setFilterData(mActivity, filterData);
-
-        headerAdViewView.fillView(ModelUtil.getAdData(), mListView);
-        headerChannelViewView.fillView(ModelUtil.getChannelData(), mListView);
-        headerFilterViewView.fillView(new Object(), mListView);
+//        // 设置筛选数据
+//        // 筛选数据
+//        filterData = new FilterData();
+//        filterData.setCategory(ModelUtil.getCategoryData());
+//        filterData.setSorts(ModelUtil.getSortData());
+//        filterData.setFilters(ModelUtil.getFilterData());
+//        fvTopFilter.setFilterData(mActivity, filterData);
+//
+//        headerAdViewView.fillView(ModelUtil.getAdData(), mListView);
+//        headerChannelViewView.fillView(ModelUtil.getChannelData(), mListView);
+//        headerFilterViewView.fillView(new Object(), mListView);
+//
+//        // 设置ListView数据
+//        mAdapter = new TravelsAdapter(mActivity, ModelUtil.getTravelingData());
+//        mListView.setAdapter(mAdapter);
+//
+//        filterViewPosition = mListView.getHeaderViewsCount() - 1;
 
         // 设置ListView数据
-        mAdapter = new TravelsAdapter(mActivity, ModelUtil.getTravelingData());
+        travelFragmentData = new TravelFragmentData();
+        mAdapter = new TravelsAdapter(mActivity, travelFragmentData.travelsBeans);
         mListView.setAdapter(mAdapter);
 
-        filterViewPosition = mListView.getHeaderViewsCount() - 1;
+        iTravelModel = new ITravelModelImpl();
+        iTravelModel.getTravelData(travelFragmentData, this);
+        initProgressBar((ViewGroup) mContentView, true);
+        showProgressBar();
+    }
 
+    @Override
+    protected void initListener() {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Methods.showToast(mListView.getItemAtPosition(position)+"lala",false);
             }
         });
-    }
 
-    @Override
-    protected void initListener() {
         // (假的ListView头部展示的)筛选视图点击
         headerFilterViewView.setOnFilterClickListener(new HeaderFilterViewView.OnFilterClickListener() {
             @Override
@@ -145,7 +159,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         // 分类Item点击
         fvTopFilter.setOnItemCategoryClickListener(new FilterView.OnItemCategoryClickListener() {
             @Override
-            public void onItemCategoryClick(FilterTwoEntity entity) {
+            public void onItemCategoryClick(FilterTwoBean entity) {
                 fillAdapter(ModelUtil.getCategoryTravelingData(entity));
             }
         });
@@ -153,7 +167,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         // 排序Item点击
         fvTopFilter.setOnItemSortClickListener(new FilterView.OnItemSortClickListener() {
             @Override
-            public void onItemSortClick(FilterEntity entity) {
+            public void onItemSortClick(FilterBean entity) {
                 fillAdapter(ModelUtil.getSortTravelingData(entity));
             }
         });
@@ -161,7 +175,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
         // 筛选Item点击
         fvTopFilter.setOnItemFilterClickListener(new FilterView.OnItemFilterClickListener() {
             @Override
-            public void onItemFilterClick(FilterEntity entity) {
+            public void onItemFilterClick(FilterBean entity) {
                 fillAdapter(ModelUtil.getFilterTravelingData(entity));
             }
         });
@@ -227,7 +241,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
     }
 
     // 填充数据
-    private void fillAdapter(List<TravelsEntity> list) {
+    private void fillAdapter(List<TravelsBean> list) {
         if (list == null || list.size() == 0) {
 //            int height = mScreenHeight - DensityUtil.dip2px(mContext, 95); // 95 = 标题栏高度 ＋ FilterView的高度
 //            mAdapter.setData(ModelUtil.getNoDataEntity(height));
@@ -261,5 +275,27 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
                 mListView.notifyLoadMoreComplete();
             }
         }, 2000);
+    }
+
+    @Override
+    public void onSuccess(final TravelFragmentData result) {
+       getActivity().runOnUiThread(new Runnable() {
+           @Override
+           public void run() {
+               dismissProgressBar();
+               fvTopFilter.setFilterData(mActivity, result.filterData);
+               headerAdViewView.fillView(result.adData, mListView);
+               headerChannelViewView.fillView(result.channelBeans, mListView);
+               headerFilterViewView.fillView(new Object(), mListView);
+
+               filterViewPosition = mListView.getHeaderViewsCount() - 1;
+               mAdapter.notifyDataSetChanged();
+           }
+       });
+    }
+
+    @Override
+    public void onError(String error) {
+
     }
 }

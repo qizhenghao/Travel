@@ -1,11 +1,11 @@
-package com.bruce.travel.travels.model;
+package com.bruce.travel.travels.been;
 
 import java.io.Serializable;
 
 /**
  * Created by sunfusheng on 16/4/20.
  */
-public class TravelsEntity implements Serializable, Comparable<TravelsEntity> {
+public class TravelsBean implements Serializable, Comparable<TravelsBean> {
 
     private String type; // 风景、动物、植物、建筑
     private String title; // 标题
@@ -17,10 +17,10 @@ public class TravelsEntity implements Serializable, Comparable<TravelsEntity> {
     private boolean isNoData = false;
     private int height;
 
-    public TravelsEntity() {
+    public TravelsBean() {
     }
 
-    public TravelsEntity(String type, String title, String from, int rank, String image_url) {
+    public TravelsBean(String type, String title, String from, int rank, String image_url) {
         this.type = type;
         this.title = title;
         this.from = from;
@@ -85,7 +85,7 @@ public class TravelsEntity implements Serializable, Comparable<TravelsEntity> {
     }
 
     @Override
-    public int compareTo(TravelsEntity another) {
+    public int compareTo(TravelsBean another) {
         return this.getRank() - another.getRank();
     }
 }

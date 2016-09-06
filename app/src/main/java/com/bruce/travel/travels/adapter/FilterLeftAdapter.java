@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bruce.travel.R;
-import com.bruce.travel.travels.model.FilterTwoEntity;
+import com.bruce.travel.travels.been.FilterTwoBean;
 
 import java.util.List;
 
@@ -18,21 +18,21 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/4/23.
  */
-public class FilterLeftAdapter extends BaseListAdapter<FilterTwoEntity> {
+public class FilterLeftAdapter extends BaseListAdapter<FilterTwoBean> {
 
-    private FilterTwoEntity selectedEntity;
+    private FilterTwoBean selectedEntity;
 
     public FilterLeftAdapter(Context context) {
         super(context);
     }
 
-    public FilterLeftAdapter(Context context, List<FilterTwoEntity> list) {
+    public FilterLeftAdapter(Context context, List<FilterTwoBean> list) {
         super(context, list);
     }
 
-    public void setSelectedEntity(FilterTwoEntity filterEntity) {
+    public void setSelectedEntity(FilterTwoBean filterEntity) {
         this.selectedEntity = filterEntity;
-        for (FilterTwoEntity entity : getData()) {
+        for (FilterTwoBean entity : getData()) {
             entity.setSelected(entity.getType().equals(selectedEntity.getType()));
         }
         notifyDataSetChanged();
@@ -49,7 +49,7 @@ public class FilterLeftAdapter extends BaseListAdapter<FilterTwoEntity> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        FilterTwoEntity entity = getItem(position);
+        FilterTwoBean entity = getItem(position);
 
         holder.tvTitle.setText(entity.getType());
         if (entity.isSelected()) {

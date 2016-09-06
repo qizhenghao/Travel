@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.widget.BaseAdapter;
 
 
-import com.bruce.travel.travels.model.TravelsEntity;
 import com.bruce.travel.universal.image.ImageManager;
 
 import java.util.ArrayList;

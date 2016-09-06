@@ -18,9 +18,9 @@ import com.bruce.travel.R;
 import com.bruce.travel.travels.adapter.FilterLeftAdapter;
 import com.bruce.travel.travels.adapter.FilterOneAdapter;
 import com.bruce.travel.travels.adapter.FilterRightAdapter;
-import com.bruce.travel.travels.model.FilterData;
-import com.bruce.travel.travels.model.FilterEntity;
-import com.bruce.travel.travels.model.FilterTwoEntity;
+import com.bruce.travel.travels.been.FilterData;
+import com.bruce.travel.travels.been.FilterBean;
+import com.bruce.travel.travels.been.FilterTwoBean;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -67,9 +67,9 @@ public class FilterView extends LinearLayout implements View.OnClickListener {
     private int panelHeight;
     private FilterData filterData;
 
-    private FilterTwoEntity selectedCategoryEntity; // 被选择的分类项
-    private FilterEntity selectedSortEntity; // 被选择的排序项
-    private FilterEntity selectedFilterEntity; // 被选择的筛选项
+    private FilterTwoBean selectedCategoryEntity; // 被选择的分类项
+    private FilterBean selectedSortEntity; // 被选择的排序项
+    private FilterBean selectedFilterEntity; // 被选择的筛选项
 
     private FilterLeftAdapter leftAdapter;
     private FilterRightAdapter rightAdapter;
@@ -344,7 +344,7 @@ public class FilterView extends LinearLayout implements View.OnClickListener {
         this.onItemCategoryClickListener = onItemCategoryClickListener;
     }
     public interface OnItemCategoryClickListener {
-        void onItemCategoryClick(FilterTwoEntity entity);
+        void onItemCategoryClick(FilterTwoBean entity);
     }
 
     // 排序Item点击
@@ -353,7 +353,7 @@ public class FilterView extends LinearLayout implements View.OnClickListener {
         this.onItemSortClickListener = onItemSortClickListener;
     }
     public interface OnItemSortClickListener {
-        void onItemSortClick(FilterEntity entity);
+        void onItemSortClick(FilterBean entity);
     }
 
     // 筛选Item点击
@@ -362,7 +362,7 @@ public class FilterView extends LinearLayout implements View.OnClickListener {
         this.onItemFilterClickListener = onItemFilterClickListener;
     }
     public interface OnItemFilterClickListener {
-        void onItemFilterClick(FilterEntity entity);
+        void onItemFilterClick(FilterBean entity);
     }
 
 }

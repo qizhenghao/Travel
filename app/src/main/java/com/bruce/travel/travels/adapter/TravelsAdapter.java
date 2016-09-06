@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 import com.bruce.travel.R;
-import com.bruce.travel.travels.model.TravelsEntity;
+import com.bruce.travel.travels.been.TravelsBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/4/20.
  */
-public class TravelsAdapter extends BaseListAdapter<TravelsEntity> {
+public class TravelsAdapter extends BaseListAdapter<TravelsBean> {
 
     private boolean isNoData;
     private int mHeight;
@@ -34,12 +34,12 @@ public class TravelsAdapter extends BaseListAdapter<TravelsEntity> {
         super(context);
     }
 
-    public TravelsAdapter(Context context, List<TravelsEntity> list) {
+    public TravelsAdapter(Context context, List<TravelsBean> list) {
         super(context, list);
     }
 
     // 设置数据
-    public void setData(List<TravelsEntity> list) {
+    public void setData(List<TravelsBean> list) {
         clearAll();
         addALL(list);
 
@@ -58,11 +58,11 @@ public class TravelsAdapter extends BaseListAdapter<TravelsEntity> {
     }
 
     // 创建不满一屏的空数据
-    public List<TravelsEntity> createEmptyList(int size) {
-        List<TravelsEntity> emptyList = new ArrayList<>();
+    public List<TravelsBean> createEmptyList(int size) {
+        List<TravelsBean> emptyList = new ArrayList<>();
         if (size <= 0) return emptyList;
         for (int i=0; i<size; i++) {
-            emptyList.add(new TravelsEntity());
+            emptyList.add(new TravelsBean());
         }
         return emptyList;
     }
@@ -88,7 +88,7 @@ public class TravelsAdapter extends BaseListAdapter<TravelsEntity> {
             convertView.setTag(holder);
         }
 
-        TravelsEntity entity = getItem(position);
+        TravelsBean entity = getItem(position);
 
         holder.llRootView.setVisibility(View.VISIBLE);
         if (TextUtils.isEmpty(entity.getType())) {

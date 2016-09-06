@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.travels.adapter.HeaderChannelAdapter;
-import com.bruce.travel.travels.model.ChannelEntity;
+import com.bruce.travel.travels.been.ChannelBean;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/4/20.
  */
-public class HeaderChannelViewView extends HeaderViewInterface<List<ChannelEntity>> {
+public class HeaderChannelViewView extends HeaderViewInterface<List<ChannelBean>> {
 
     @Bind(R.id.gv_channel)
     FixedGridView gvChannel;
@@ -26,7 +26,7 @@ public class HeaderChannelViewView extends HeaderViewInterface<List<ChannelEntit
     }
 
     @Override
-    protected void getView(List<ChannelEntity> list, ListView listView) {
+    protected void getView(List<ChannelBean> list, ListView listView) {
         View view = mInflate.inflate(R.layout.fragment_travels_header_channel_layout, listView, false);
         ButterKnife.bind(this, view);
 
@@ -34,7 +34,7 @@ public class HeaderChannelViewView extends HeaderViewInterface<List<ChannelEntit
         listView.addHeaderView(view);
     }
 
-    private void dealWithTheView(List<ChannelEntity> list) {
+    private void dealWithTheView(List<ChannelBean> list) {
         int size = list.size();
 
         if (size <= 4) {

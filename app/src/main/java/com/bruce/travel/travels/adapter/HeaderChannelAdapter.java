@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bruce.travel.R;
-import com.bruce.travel.travels.model.ChannelEntity;
+import com.bruce.travel.travels.been.ChannelBean;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/4/20.
  */
-public class HeaderChannelAdapter extends BaseListAdapter<ChannelEntity> {
+public class HeaderChannelAdapter extends BaseListAdapter<ChannelBean> {
 
-    public HeaderChannelAdapter(Context context, List<ChannelEntity> list) {
+    public HeaderChannelAdapter(Context context, List<ChannelBean> list) {
         super(context, list);
     }
 
@@ -36,7 +36,7 @@ public class HeaderChannelAdapter extends BaseListAdapter<ChannelEntity> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ChannelEntity entity = getItem(position);
+        ChannelBean entity = getItem(position);
 
         holder.tvTitle.setText(entity.getTitle());
         mImageManager.loadCircleImage(entity.getImage_url(), holder.ivImage);

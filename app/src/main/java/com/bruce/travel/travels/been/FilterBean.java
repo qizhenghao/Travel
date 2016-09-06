@@ -1,20 +1,20 @@
-package com.bruce.travel.travels.model;
+package com.bruce.travel.travels.been;
 
 import java.io.Serializable;
 
 /**
  * Created by sunfusheng on 16/4/23.
  */
-public class FilterEntity implements Serializable {
+public class FilterBean implements Serializable {
 
     private String key;
     private String value;
     private boolean isSelected;
 
-    public FilterEntity() {
+    public FilterBean() {
     }
 
-    public FilterEntity(String key, String value) {
+    public FilterBean(String key, String value) {
         this.key = key;
         this.value = value;
     }
