@@ -2,6 +2,7 @@ package com.bruce.travel.travels.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,8 @@ public class PopWindowView extends PopupWindow {
         this.setContentView(contentView);
         this.setWidth(LayoutParams.WRAP_CONTENT);
         this.setHeight(LayoutParams.WRAP_CONTENT);
+
+        this.setBackgroundDrawable(new BitmapDrawable());
         this.setFocusable(true);
         this.setOutsideTouchable(true);
         this.update();

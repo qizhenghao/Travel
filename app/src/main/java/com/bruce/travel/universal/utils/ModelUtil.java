@@ -90,13 +90,13 @@ public class ModelUtil {
 
     public static List<TravelNotesInfo> getTravelNotesData() {
         List<TravelNotesInfo> travelNotesList = new ArrayList<>();
-        travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","青海湖", R.drawable.user_icon,"柠檬","16-06-18",R.drawable.travel_note_bg1));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
-        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"小九","16-06-18",R.drawable.travel_detail_bg4));
-        travelNotesList.add(new TravelNotesInfo("2016我们在厦门","厦门", R.drawable.user_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
-        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_icon,"缘","16-06-18",R.drawable.travel_note_bg1));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","青海湖", R.drawable.user_head_icon,"柠檬","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
+        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_head_icon,"小九","16-06-18",R.drawable.travel_detail_bg4));
+        travelNotesList.add(new TravelNotesInfo("2016我们在厦门","厦门", R.drawable.user_head_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
+        travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_head_icon,"缘","16-06-18",R.drawable.travel_note_bg1));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
         return travelNotesList;
     }
 

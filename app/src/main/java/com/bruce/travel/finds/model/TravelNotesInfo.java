@@ -66,6 +66,10 @@ public class TravelNotesInfo implements Serializable, Comparable<TravelNotesInfo
         return icon;
     }
 
+    public String getUrlBg() {
+        return bg_url;
+    }
+
     public int getBg() {
         return bg;
     }

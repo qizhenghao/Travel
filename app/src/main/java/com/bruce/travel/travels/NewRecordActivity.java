@@ -22,6 +22,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseActivity;
+import com.bruce.travel.finds.model.TravelNotesInfo;
 import com.bruce.travel.travels.view.PopWindowView;
 import com.bruce.travel.travels.view.TimePickerView;
 import com.bruce.travel.universal.photopicker.camera.PhotoPickManger;
@@ -62,6 +63,8 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     LinearLayout time_picker_ll;
     @Bind(R.id.date_pick_confirm_btn)
     Button time_confirm_btn;
+    @Bind(R.id.date_pick_cancel_btn)
+    Button time_cancle_btn;
 
     private GridView photo_gv;
     private EditText title_et;
@@ -80,6 +83,8 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     private String myLocation;
     TimePickerView timePicker;
     private String pickTimeStr;
+    private List<TravelNotesInfo> list;
+    private TravelNotesInfo travelInfo;
 
 
 
@@ -180,7 +185,7 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         return_btn.setOnClickListener(this);
         cancel_tv.setOnClickListener(this);
         time_confirm_btn.setOnClickListener(this);
-        findViewById(R.id.date_pick_cancel_btn).setOnClickListener(this);
+        time_cancle_btn.setOnClickListener(this);
     }
 
 
@@ -208,6 +213,9 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
                 mLocationClient.start();
                 location_tv.setVisibility(View.VISIBLE);
                 location_tv.setText("正在获取位置...");
+                break;
+            case R.id.return_desktop_btn:
+                finish();
                 break;
 
         }
@@ -281,7 +289,7 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     public void createDialog(final PhotoPickManger pickManger){
         new AlertDialog.Builder(pickManger.getActivity()).setTitle("单选框").setIcon(
                 android.R.drawable.ic_dialog_info).setSingleChoiceItems(
-                new String[]{"系统相机", "系统相册"}, -1,
+                new String[]{"系统相机", "系统相册"},-1,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

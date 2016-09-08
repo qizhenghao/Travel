@@ -10,12 +10,20 @@
         android:layout_height="180dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
-
         <ImageView
             android:layout_centerVertical="true"
             android:id="@+id/record_bg_iv"
             android:layout_width="match_parent"
+<<<<<<< Updated upstream
             android:layout_height="160dp"/>
+=======
+            android:layout_height="170dp"/>
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@color/black_transparent"/>
+>>>>>>> Stashed changes
         <TextView
             android:id="@+id/title_tv"
             android:layout_width="wrap_content"
@@ -23,7 +31,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="12dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/white"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +49,8 @@
                 android:id="@+id/location_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="beijingshi" />
+                android:text="beijingshi"
+                android:textColor="@color/white"/>
         </LinearLayout>
         <ImageView
             android:id="@+id/user_icon"
@@ -48,8 +58,7 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:paddingLeft="15dp"
-            android:layout_marginBottom="3dp"
+            android:paddingLeft="12dp"
             android:src="@color/font_black_6"/>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -57,18 +66,20 @@
             android:orientation="vertical"
             android:layout_toRightOf="@+id/user_icon"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="8dp">
             <TextView
                 android:id="@+id/user_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="user name"/>
+                android:text="user name"
+                android:textColor="@color/white"/>
             <TextView
                 android:id="@+id/share_date_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2016-6-5"/>
+                android:text="2016-06-05"
+                android:textColor="@color/white"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -85,7 +96,8 @@
                 android:id="@+id/scanned_num_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2k"/>
+                android:text="2k"
+                android:textColor="@color/white"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/like_ll"
@@ -105,7 +117,8 @@
                 android:id="@+id/like_num_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1k"/>
+                android:text="1k"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </RelativeLayout>
     <ImageView

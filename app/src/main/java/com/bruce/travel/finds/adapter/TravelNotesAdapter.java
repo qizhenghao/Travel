@@ -88,9 +88,11 @@ public class TravelNotesAdapter extends BaseListAdapter<TravelNotesInfo> {
         holder.location.setText(infos.getLocation());
         holder.date.setText(infos.getDate());
         holder.account.setText(infos.getAccount());
-//        holder.record_bg.setBackgroundResource(infos.getBg());
-        mImageManager.loadRoundedCornerResImage(infos.getBg(), holder.bgIv);
-//        holder.record_bg.setBackground(mImageManager.loadUrlImage(infos.getBg_url()));
+        holder.record_bg.setBackgroundResource(infos.getBg());
+
+
+//        mImageManager.loadRoundedCornerResImage(infos.getBg(), holder.bgIv);
+
         mImageManager.loadCircleResImage(infos.getIcon(),holder.icon);
         return convertView;
     }

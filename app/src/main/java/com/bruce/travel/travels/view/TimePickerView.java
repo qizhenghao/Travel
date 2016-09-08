@@ -41,6 +41,7 @@ public class TimePickerView extends LinearLayout {
     private int mHour;
 
     private String mStrMonth;
+    private String mStrDay;
     private String pickTime;
 
     private Calendar mCalendar;
@@ -215,7 +216,10 @@ public class TimePickerView extends LinearLayout {
          } else {
              mStrMonth = (mMonth + 1) + "";
          }
-         pickTime = mYear + "-" + mStrMonth + "-" + mDay;
+         if(mDay > 0 && mDay < 9) {
+             mStrDay = "0" + mDay;
+         }
+         pickTime = mYear + "-" + mStrMonth + "-" + mStrDay;
          return pickTime;
      }
 

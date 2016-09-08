@@ -200,15 +200,6 @@
                     android:layout_marginLeft="5dp"
                     android:text="设置时间"
                     android:textSize="9pt"/>
-
-                <Button
-                    android:id="@+id/date_pick_confirm_btn"
-                    android:layout_width="55dp"
-                    android:layout_height="32dp"
-                    style="@style/common_blue_small_button"
-                    android:layout_toLeftOf="@+id/date_pick_cancel_btn"
-                    android:layout_marginRight="6dp"
-                    android:text="确定"/>
                 <Button
                     android:id="@+id/date_pick_cancel_btn"
                     android:layout_width="55dp"
@@ -217,6 +208,15 @@
                     android:background="@null"
                     android:layout_alignParentRight="true"
                     android:text="取消"/>
+                <Button
+                    android:id="@+id/date_pick_confirm_btn"
+                    android:layout_width="55dp"
+                    android:layout_height="32dp"
+                    style="@style/common_blue_small_button"
+                    android:layout_toLeftOf="@+id/date_pick_cancel_btn"
+                    android:layout_marginRight="6dp"
+                    android:text="确定"/>
+
             </RelativeLayout>
             <com.bruce.travel.travels.view.TimePickerView
                 android:id="@+id/time_picker"
