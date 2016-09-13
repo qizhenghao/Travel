@@ -13,6 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:background="@color/blue_light1"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="@color/black_transparent1"/>
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -36,7 +40,8 @@
             android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
             android:text="title"
-            android:textSize="9pt"/>
+            android:textSize="9pt"
+            android:textColor="@color/white"/>
         <TextView
             android:id="@+id/detail_location_tv"
             android:layout_width="wrap_content"
@@ -45,7 +50,8 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/detail_title_tv"
             android:layout_marginTop="8dp"
-            android:textSize="8.5pt"/>
+            android:textSize="8.5pt"
+            android:textColor="@color/white"/>
         <ImageView
             android:id="@+id/icon_iv"
             android:layout_width="80dp"

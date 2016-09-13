@@ -289,7 +289,7 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     public void createDialog(final PhotoPickManger pickManger){
         new AlertDialog.Builder(pickManger.getActivity()).setTitle("单选框").setIcon(
                 android.R.drawable.ic_dialog_info).setSingleChoiceItems(
-                new String[]{"系统相机", "系统相册"},-1,
+                new String[]{"系统相机", "系统相册","微信相册"},-1,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

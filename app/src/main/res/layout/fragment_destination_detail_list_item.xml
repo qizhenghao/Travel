@@ -3,59 +3,126 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/fragment_secret_gift_item_selected_bg"
+    android:background="@color/white"
     android:orientation="vertical">
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="3dp"
+            android:layout_height="20dp"
+            android:background="@color/blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="lalalalalalla"/>
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/round_corner_bg"
         android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/detail_list_item_left_line_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="——"
-            android:textColor="@color/blue_light"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/detail_list_item_right_line_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="——"
-            android:textColor="@color/blue_light"
-            android:textSize="15sp"/>
+        <ImageView
+            android:id="@+id/detail_list_item_iv"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/travel_detail_bg4"/>
 
         <TextView
             android:id="@+id/detail_list_item_name_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:layout_centerInParent="true"
-            android:gravity="center"
-            android:layout_toLeftOf="@id/detail_list_item_right_line_tv"
-            android:layout_toRightOf="@id/detail_list_item_left_line_tv"
-            android:ellipsize="end"
             android:textColor="@color/font_black_28"
-            android:textSize="18sp"/>
+            android:layout_below="@+id/detail_list_item_iv"
+            android:text="lalala"/>
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/detail_list_item_content_tv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="8"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:lineSpacingExtra="2dp"
-        android:textColor="@color/font_black_28"
-        android:textSize="16sp"/>
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1px"-->
-        <!--android:background="@color/font_black_5"/>-->
+        android:layout_marginTop="8dp">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/round_corner_bg"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/detail_list_item_iv2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/travel_detail_bg4"/>
+            <TextView
+                android:id="@+id/detail_list_item_name_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/font_black_28"
+                android:layout_below="@+id/detail_list_item_iv2"
+                android:text="lalala"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/round_corner_bg"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/detail_list_item_iv3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/travel_detail_bg4"/>
+            <TextView
+                android:id="@+id/detail_list_item_name_tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/font_black_28"
+                android:layout_below="@+id/detail_list_item_iv3"
+                android:text="lalala"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/round_corner_bg"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/detail_list_item_iv1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/travel_detail_bg4"/>
+            <TextView
+                android:id="@+id/detail_list_item_name_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/font_black_28"
+                android:layout_below="@+id/detail_list_item_iv1"
+                android:text="lalala"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/white"/>
 </LinearLayout>

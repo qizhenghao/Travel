@@ -2,6 +2,8 @@ package com.bruce.travel.universal.utils;
 
 import com.bruce.travel.R;
 import com.bruce.travel.finds.model.TravelNotesInfo;
+import com.bruce.travel.message.model.DestinationDetailInfo;
+import com.bruce.travel.message.model.DestinationInfo;
 import com.bruce.travel.travels.been.ChannelBean;
 import com.bruce.travel.travels.been.FilterBean;
 import com.bruce.travel.travels.been.FilterTwoBean;
@@ -11,7 +13,9 @@ import com.bruce.travel.travels.been.TravelsEntityComparator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 好吧，让你找到了，这是假的数据源
@@ -28,12 +32,12 @@ public class ModelUtil {
     // 广告数据
     public static List<String> getAdData() {
         List<String> adList = new ArrayList<>();
-//        adList.add("http://img0.imgtn.bdimg.com/it/u=1270781761,1881354959&fm=21&gp=0.jpg");
-//        adList.add("http://img0.imgtn.bdimg.com/it/u=2138116966,3662367390&fm=21&gp=0.jpg");
-//        adList.add("http://img0.imgtn.bdimg.com/it/u=1296117362,655885600&fm=21&gp=0.jpg");
-        adList.add("http://img.mp.itc.cn/upload/20160814/5b8d5cabb8a3417c85f9a1f7ef421d03_th.jpg");
-        adList.add("http://jiangsu.china.com.cn/uploadfile/2016/0815/1471251091317279.jpg");
-        adList.add("http://img.xianzhaiwang.cn/d/file/xinwen/roll/ab2b1d1135bc912163c80e5f94c0930b.jpg");
+        adList.add("http://img0.imgtn.bdimg.com/it/u=1270781761,1881354959&fm=21&gp=0.jpg");
+        adList.add("http://img0.imgtn.bdimg.com/it/u=2138116966,3662367390&fm=21&gp=0.jpg");
+        adList.add("http://img0.imgtn.bdimg.com/it/u=1296117362,655885600&fm=21&gp=0.jpg");
+//        adList.add("http://img.mp.itc.cn/upload/20160814/5b8d5cabb8a3417c85f9a1f7ef421d03_th.jpg");
+//        adList.add("http://jiangsu.china.com.cn/uploadfile/2016/0815/1471251091317279.jpg");
+//        adList.add("http://img.xianzhaiwang.cn/d/file/xinwen/roll/ab2b1d1135bc912163c80e5f94c0930b.jpg");
         adList.add("http://img2.ph.126.net/uA75ADvzg-TnPnOsBONenw==/6608534374399192856.jpg");
         adList.add("http://upload.17u.com/uploadfile/2015/01/09/2/201501091014115097620.jpg");
         adList.add("http://m.tuniucdn.com/fb2/t1/G1/M00/0B/32/Cii9EVZFhHWITxtjAAM2lV-HknoAAAMGgPmgKoAAzat612_w800_h400_c1_t0.jpg");
@@ -63,41 +67,77 @@ public class ModelUtil {
     // ListView数据
     public static List<TravelsBean> getTravelingData() {
         List<TravelsBean> travelingList = new ArrayList<>();
-        travelingList.add(new TravelsBean(type_scenery, "大理", "中国", 1, "http://img5.imgtn.bdimg.com/it/u=2769726205,1778838650&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", 20, "http://img1.imgtn.bdimg.com/it/u=1832737924,144748431&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "意大利", 21, "http://img5.imgtn.bdimg.com/it/u=2091366266,1524114981&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "拱门", "美国", 5, "http://img4.imgtn.bdimg.com/it/u=3673198446,2175517238&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "荷花", "中国", 4, "http://img4.imgtn.bdimg.com/it/u=3052089044,3887933556&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "", "西班牙", 18, "http://img2.imgtn.bdimg.com/it/u=140083303,1086773509&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", 19, "http://img5.imgtn.bdimg.com/it/u=1424970962,1243597989&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "水貂", "美国", 7, "http://img4.imgtn.bdimg.com/it/u=1387833256,3665925904&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "仙人掌", "美国", 8, "http://img1.imgtn.bdimg.com/it/u=3808801622,1608105009&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "威尔士", "英国", 9, "http://img4.imgtn.bdimg.com/it/u=2440866214,1867472386&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "伦敦塔桥", "英国", 10, "http://img3.imgtn.bdimg.com/it/u=3040385967,1031044866&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "", "英国", 11, "http://img3.imgtn.bdimg.com/it/u=1896821840,3837942977&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "", "英国", 12, "http://img3.imgtn.bdimg.com/it/u=2745651862,279304559&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "德国", 13, "http://img3.imgtn.bdimg.com/it/u=4137420324,1489843447&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "自由女神像", "美国", 6, "http://img3.imgtn.bdimg.com/it/u=2566161363,1140447270&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "拉萨", "中国", 2, "http://img1.imgtn.bdimg.com/it/u=372954611,2699392190&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "熊猫", "中国", 3, "http://img0.imgtn.bdimg.com/it/u=1022702848,645282860&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "", "德国", 14, "http://img1.imgtn.bdimg.com/it/u=3436675019,2609348874&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "狗熊", "德国", 15, "http://img4.imgtn.bdimg.com/it/u=4280994062,276434784&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "", "德国", 16, "http://img0.imgtn.bdimg.com/it/u=1644854868,3172549858&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", 17, "http://img4.imgtn.bdimg.com/it/u=620137884,621556624&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "", "意大利", 22, "http://img0.imgtn.bdimg.com/it/u=3631118072,1530723002&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "大理", "中国", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=2769726205,1778838650&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=1832737924,144748431&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "", "意大利", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=2091366266,1524114981&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "拱门", "美国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=3673198446,2175517238&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_plant, "荷花", "中国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=3052089044,3887933556&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_building, "", "西班牙", "2016-12-06", "http://img2.imgtn.bdimg.com/it/u=140083303,1086773509&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=1424970962,1243597989&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_animal, "水貂", "美国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=1387833256,3665925904&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_plant, "仙人掌", "美国", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=3808801622,1608105009&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "威尔士", "英国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=2440866214,1867472386&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_building, "伦敦塔桥", "英国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=3040385967,1031044866&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_animal, "", "英国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=1896821840,3837942977&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_plant, "", "英国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=2745651862,279304559&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "", "德国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=4137420324,1489843447&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_building, "自由女神像", "美国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=2566161363,1140447270&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_building, "拉萨", "中国", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=372954611,2699392190&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_animal, "熊猫", "中国", "2016-12-06", "http://img0.imgtn.bdimg.com/it/u=1022702848,645282860&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_building, "", "德国", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=3436675019,2609348874&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_animal, "狗熊", "德国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=4280994062,276434784&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_plant, "", "德国", "2016-12-06", "http://img0.imgtn.bdimg.com/it/u=1644854868,3172549858&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=620137884,621556624&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean(type_building, "", "意大利", "2016-12-06", "http://img0.imgtn.bdimg.com/it/u=3631118072,1530723002&fm=206&gp=0.jpg"));
         return travelingList;
     }
 
     public static List<TravelNotesInfo> getTravelNotesData() {
         List<TravelNotesInfo> travelNotesList = new ArrayList<>();
         travelNotesList.add(new TravelNotesInfo("沿着大草原前进，舞动青春","青海湖", R.drawable.user_head_icon,"柠檬","16-06-18",R.drawable.travel_note_bg1));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"可乐","16-06-18",R.drawable.travel_detail_bg2));
         travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_head_icon,"小九","16-06-18",R.drawable.travel_detail_bg4));
         travelNotesList.add(new TravelNotesInfo("2016我们在厦门","厦门", R.drawable.user_head_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
-        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"可乐","16-06-18",R.drawable.travel_detail_bg3));
+        travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"可乐","16-06-18",R.drawable.travel_detail_bg2));
         travelNotesList.add(new TravelNotesInfo("蓝天世界有你有我","希腊", R.drawable.user_head_icon,"缘","16-06-18",R.drawable.travel_note_bg1));
         travelNotesList.add(new TravelNotesInfo("邂逅美景之呼伦贝尔大草原","呼伦贝尔", R.drawable.user_head_icon,"兰","16-06-18",R.drawable.travel_note_bg1));
         return travelNotesList;
+    }
+
+    public static List<DestinationInfo> getDestinationData() {
+        List<DestinationInfo> dstInfo = new ArrayList<>();
+        dstInfo.add(new DestinationInfo("热门"));
+        dstInfo.add(new DestinationInfo("国内"));
+        dstInfo.add(new DestinationInfo("韩国"));
+        dstInfo.add(new DestinationInfo("马尔代夫"));
+        dstInfo.add(new DestinationInfo("欧洲"));
+        dstInfo.add(new DestinationInfo("泰国"));
+        dstInfo.add(new DestinationInfo("日本"));
+        dstInfo.add(new DestinationInfo("东南亚"));
+        dstInfo.add(new DestinationInfo("美洲"));
+        dstInfo.add(new DestinationInfo("港澳"));
+        dstInfo.add(new DestinationInfo("台湾"));
+        return dstInfo;
+    }
+
+//    public static Map<Integer, List<DestinationDetailInfo>> getDestinationDetailData() {
+//        Map<Integer, List<DestinationDetailInfo>> dstInfo = new HashMap<>();
+//        List<DestinationDetailInfo> dstHotInfo = new ArrayList<>();
+//        dstHotInfo.add(new DestinationDetailInfo("remen111"));
+//        dstHotInfo.add(new DestinationDetailInfo("remen222"));
+//        dstInfo.put(0, dstHotInfo);
+//
+//        return dstInfo;
+//    }
+
+    public static List<DestinationDetailInfo> getDestinationDetailData() {
+        List<DestinationDetailInfo> dstInfo = new ArrayList<>();
+        dstInfo.add(new DestinationDetailInfo("热门"));
+        dstInfo.add(new DestinationDetailInfo("国内"));
+        dstInfo.add(new DestinationDetailInfo("韩国"));
+        dstInfo.add(new DestinationDetailInfo("马尔代夫"));
+        dstInfo.add(new DestinationDetailInfo("欧洲"));
+        return dstInfo;
     }
 
     // 分类数据

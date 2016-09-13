@@ -21,7 +21,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
  */
 public class GlideRoundCornerTransform extends BitmapTransformation {
 
-    private static float mRadius = Methods.computePixelsWithDensity(16);
+    private static float mRadius = Methods.computePixelsWithDensity(6);
 
     public GlideRoundCornerTransform(Context context) {
         super(context);

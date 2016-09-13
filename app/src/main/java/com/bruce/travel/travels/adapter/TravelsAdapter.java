@@ -97,7 +97,7 @@ public class TravelsAdapter extends BaseListAdapter<TravelsBean> {
         }
 
         holder.tvTitle.setText(entity.getFrom() + entity.getTitle() + entity.getType());
-        holder.tvRank.setText("排名：" + entity.getRank());
+        holder.tvRank.setText(entity.getDate());
         mImageManager.loadUrlImage(entity.getImage_url(), holder.ivImage);
 
         return convertView;

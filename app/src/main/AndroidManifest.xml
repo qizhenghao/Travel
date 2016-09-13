@@ -49,6 +49,7 @@
         <activity android:name=".mine.ui.SettingActivity"/>
         <activity android:name=".travels.NewRecordActivity"/>
         <activity android:name=".finds.ui.TravelDetailActivity"/>
+        <activity android:name=".travels.activities.MyTravelsDetailActivity"/>
 
 
     <!-- 百度地图所需的service -->

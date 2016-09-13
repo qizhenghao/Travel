@@ -48,6 +48,7 @@ public class TitleAdapter extends BaseAdapter {
             holder = new GroupItemHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_destination_title_list_item, null);
             holder.tv = (TextView) convertView.findViewById(R.id.title_list_item_content_tv);
+            holder.indicator = (View) convertView.findViewById(R.id.selected_indicator);
             convertView.setTag(holder);
         } else {
             holder = (GroupItemHolder) convertView.getTag();
@@ -55,11 +56,13 @@ public class TitleAdapter extends BaseAdapter {
         if (position == mSelectedItem) {
             holder.tv.setTextColor(Color.BLACK);
             holder.tv.setBackgroundResource(R.color.white);
+            holder.indicator.setBackgroundResource(R.color.blue_light);
         } else {
             holder.tv.setTextColor(mContext.getResources().getColor(R.color.font_black_38));
-            holder.tv.setBackgroundResource(0);
+            holder.tv.setBackgroundResource(R.color.grey_f2);
+            holder.indicator.setBackgroundResource(R.color.grey_f2);
         }
-        holder.tv.setText(info.name);
+        holder.tv.setText(info.getTitle());
         return convertView;
     }
 
@@ -68,5 +71,6 @@ public class TitleAdapter extends BaseAdapter {
     }
     private static class GroupItemHolder {
         TextView tv;
+        View indicator;
     }
 }

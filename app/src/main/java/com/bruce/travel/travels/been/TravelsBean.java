@@ -12,6 +12,7 @@ public class TravelsBean implements Serializable, Comparable<TravelsBean> {
     private String from; // 来源
     private int rank; // 排名
     private String image_url; // 图片地址
+    private String date;
 
     // 暂无数据属性
     private boolean isNoData = false;
@@ -20,11 +21,11 @@ public class TravelsBean implements Serializable, Comparable<TravelsBean> {
     public TravelsBean() {
     }
 
-    public TravelsBean(String type, String title, String from, int rank, String image_url) {
+    public TravelsBean(String type, String title, String from, String date, String image_url) {
         this.type = type;
         this.title = title;
         this.from = from;
-        this.rank = rank;
+        this.date = date;
         this.image_url = image_url;
     }
 
@@ -82,6 +83,10 @@ public class TravelsBean implements Serializable, Comparable<TravelsBean> {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     @Override

@@ -43,7 +43,7 @@
                 android:layout_below="@+id/tv_title"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/iv_image"
-                android:text="排名：23"
+                android:text="2016-08-12"
                 android:textColor="@color/font_black_5"
                 android:textSize="12sp"/>
         </RelativeLayout>

@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
+import com.bruce.travel.finds.ui.TravelDetailActivity;
+import com.bruce.travel.travels.activities.MyTravelsDetailActivity;
 import com.bruce.travel.travels.been.TravelsBean;
 import com.bruce.travel.travels.listener.OnGetDataListener;
 import com.bruce.travel.desktop.DesktopActivity;
@@ -28,6 +30,7 @@ import com.bruce.travel.universal.utils.ModelUtil;
 import com.bruce.travel.universal.view.FloatingActionButton;
 import com.bruce.travel.universal.view.ScrollOverListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -47,6 +50,7 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
     private HeaderFilterViewView headerFilterViewView;
     private TravelsAdapter mAdapter;
     private boolean isLogin;
+    private TravelsBean mTravelsBean;
 
 
     @Bind(R.id.fragment_travels_top_filter_view)
@@ -230,12 +234,24 @@ public class TravelsFragment extends BaseFragment implements ScrollOverListView.
             @Override
             public void onClick(View v) {
 //                if(isLogin) {
-                    Intent intent  = new Intent(getActivity(), NewRecordActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(getActivity(), NewRecordActivity.class);
+                startActivity(intent);
 //                } else {
 //                    Methods.showToast("请先登录", false);
 //                }
 
+            }
+        });
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mTravelsBean = travelFragmentData.travelsBeans.get(position);
+                Intent intent = new Intent(getContext(),MyTravelsDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("my_detail", mTravelsBean);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }
