@@ -12,8 +12,8 @@ import com.bruce.travel.base.BaseActivity;
 public class MyTravelsDetailActivity extends BaseActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_travel_detail_layout);
     }
 
