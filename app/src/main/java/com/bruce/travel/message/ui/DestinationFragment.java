@@ -1,24 +1,25 @@
 package com.bruce.travel.message.ui;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
-import com.bruce.travel.message.adapter.DetailAdapter;
 import com.bruce.travel.message.adapter.TitleAdapter;
+import com.bruce.travel.message.model.DestinationDetailInfo;
 import com.bruce.travel.message.model.DestinationInfo;
-import com.bruce.travel.universal.api.TravelApi;
+import com.bruce.travel.universal.utils.Methods;
+import com.bruce.travel.universal.utils.ModelUtil;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,10 +31,13 @@ import cz.msebera.android.httpclient.Header;
 public class DestinationFragment extends BaseFragment {
 
     private ListView mTitleLv;
-    private ListView mDetailLv;
+    private FrameLayout mDetailContainer;
     private TitleAdapter titleAdapter;
+    private int titlePosition;
     private List<DestinationInfo> titleList;
-    private DestinationDetailFragment destinationDetailFragment;
+    private DestinationDetailFragment dstDetailFragment;
+    private DestinationDetailInfo dstInfo;
+    private int mPosition;
 
 
     @Override
@@ -44,17 +48,43 @@ public class DestinationFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        mTitleLv = (ListView)mContentView.findViewById(R.id.dst_lv);
     }
 
     @Override
     protected void initData() {
+        titleAdapter = new TitleAdapter(getContext(), ModelUtil.getDestinationData());
+        mTitleLv.setAdapter(titleAdapter);
+
+        dstDetailFragment = new DestinationDetailFragment();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.dst_detail_container, dstDetailFragment);
+        Bundle bundle = new Bundle();
+        bundle.putInt("selectInfo", titlePosition);
+        dstDetailFragment.setArguments(bundle);
+        fragmentTransaction.commit();
 
     }
 
     @Override
     protected void initListener() {
+        mTitleLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Methods.showToast("" + position, false);
+                titleAdapter.setSelectedItem(position);
+                dstDetailFragment = new DestinationDetailFragment();
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.dst_detail_container, dstDetailFragment);
+                Bundle bundle = new Bundle();
+                bundle.putInt("selectInfo", position);
+                dstDetailFragment.setArguments(bundle);
+                fragmentTransaction.commit();
+
+            }
+        });
+        mTitleLv.setAdapter(new TitleAdapter(getContext(), ModelUtil.getDestinationData()));
     }
 
     @Override

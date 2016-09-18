@@ -22,6 +22,7 @@ public class DestinationListFragment extends ListFragment {
 
     private View mContentView;
     private TitleAdapter titleAdapter;
+    public static int mTitlePosition;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -38,13 +39,10 @@ public class DestinationListFragment extends ListFragment {
 
     @Override
     public void onListItemClick (ListView l, View v, int position, long id) {
-        Methods.showToast("" + position, false);
-        titleAdapter.setSelectedItem(position);
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("selectInfo", position);
-//        this.setArguments(bundle);
-        titleAdapter.notifyDataSetChanged();
-
+//        Methods.showToast("" + position, false);
+//        titleAdapter.setSelectedItem(position);
+//        mTitlePosition = position;
+//        titleAdapter.notifyDataSetChanged();
 
     }
 

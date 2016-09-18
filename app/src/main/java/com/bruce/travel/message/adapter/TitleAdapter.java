@@ -18,7 +18,7 @@ public class TitleAdapter extends BaseAdapter {
     private Context mContext;
 
     private List<DestinationInfo> destinationInfos;
-    private int mSelectedItem = 0;
+    private int mSelectedItem;
 
     public TitleAdapter(Context context, List<DestinationInfo> infos) {
         this.mContext = context;
@@ -31,7 +31,7 @@ public class TitleAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public DestinationInfo getItem(int position) {
         return destinationInfos.get(position);
     }
 
@@ -53,15 +53,13 @@ public class TitleAdapter extends BaseAdapter {
         } else {
             holder = (GroupItemHolder) convertView.getTag();
         }
+
         if (position == mSelectedItem) {
             holder.tv.setTextColor(Color.BLACK);
             holder.tv.setBackgroundResource(R.color.white);
             holder.indicator.setBackgroundResource(R.color.blue_light);
-        } else {
-            holder.tv.setTextColor(mContext.getResources().getColor(R.color.font_black_38));
-            holder.tv.setBackgroundResource(R.color.grey_f2);
-            holder.indicator.setBackgroundResource(R.color.grey_f2);
         }
+
         holder.tv.setText(info.getTitle());
         return convertView;
     }

@@ -49,7 +49,8 @@
         <activity android:name=".mine.ui.SettingActivity"/>
         <activity android:name=".travels.NewRecordActivity"/>
         <activity android:name=".finds.ui.TravelDetailActivity"/>
-        <activity android:name=".travels.activities.MyTravelsDetailActivity"/>
+        <activity android:name=".travels.activities.MyTravelsDetailActivity"
+                  android:windowSoftInputMode="stateAlwaysHidden"/>
 
 
     <!-- 百度地图所需的service -->

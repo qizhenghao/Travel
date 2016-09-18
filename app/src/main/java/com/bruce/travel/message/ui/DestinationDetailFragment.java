@@ -22,8 +22,7 @@ public class DestinationDetailFragment extends BaseFragment {
 
     private ListView detailList;
     private List<DestinationDetailInfo> detailInfoList;
-    private DetailAdapter detailAdapter;
-    private int selectNum;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,9 +38,15 @@ public class DestinationDetailFragment extends BaseFragment {
     @Override
     protected void initData() {
 
-//        selectNum = getArguments().getInt("selectInfo", 0);
-        detailAdapter = new DetailAdapter(getContext(), ModelUtil.getDestinationDetailData());
-//        detailAdapter = new DetailAdapter(getContext(), ModelUtil.getDestinationDetailData().get(selectNum));
+        int selectNum = getArguments().getInt("selectInfo", 0);
+        DetailAdapter detailAdapter;
+        if (selectNum == 0) {
+            detailAdapter = new DetailAdapter(getContext(), ModelUtil.getDestinationDetailData());
+        } else if (selectNum == 1){
+            detailAdapter = new DetailAdapter(getContext(), ModelUtil.getDestinationDetailData1());
+        } else {
+            detailAdapter = new DetailAdapter(getContext(), ModelUtil.getDestinationDetailData2());
+        }
         detailList.setAdapter(detailAdapter);
 
 

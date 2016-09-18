@@ -1,9 +1,11 @@
 package com.bruce.travel.message.model;
 
+import java.io.Serializable;
+
 /**
  * Created by 梦亚 on 2016/9/9.
  */
-public class DestinationDetailInfo {
+public class DestinationDetailInfo implements Serializable, Comparable<DestinationDetailInfo> {
 
     public Integer id;
     private String Slogan;
@@ -19,5 +21,10 @@ public class DestinationDetailInfo {
     }
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public int compareTo(DestinationDetailInfo another) {
+        return 0;
     }
 }

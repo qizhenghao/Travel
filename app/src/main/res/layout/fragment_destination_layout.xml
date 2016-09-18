@@ -65,20 +65,19 @@
             <!--android:scrollbars="none">-->
         <!--</ListView>-->
 
-        <fragment
-            android:name="com.bruce.travel.message.ui.DestinationListFragment"
-            android:id="@+id/dst_list_fragment"
+        <ListView
+            android:id="@+id/dst_lv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:scrollbars="none"
             android:layout_weight="2"/>
 
-        <fragment
-            android:name="com.bruce.travel.message.ui.DestinationDetailFragment"
-            android:id="@+id/dst_detail_fragment"
+        <FrameLayout
+            android:id="@+id/dst_detail_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7">
-        </fragment>
+        </FrameLayout>
     </LinearLayout>
 
 

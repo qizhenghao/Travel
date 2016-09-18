@@ -140,6 +140,28 @@ public class ModelUtil {
         return dstInfo;
     }
 
+    public static List<DestinationDetailInfo> getDestinationDetailData1() {
+        List<DestinationDetailInfo> dstInfo = new ArrayList<>();
+        dstInfo.add(new DestinationDetailInfo("热门1"));
+        dstInfo.add(new DestinationDetailInfo("国内1"));
+        dstInfo.add(new DestinationDetailInfo("韩国1"));
+        dstInfo.add(new DestinationDetailInfo("马尔代夫1"));
+        dstInfo.add(new DestinationDetailInfo("欧洲1"));
+        return dstInfo;
+    }
+
+    public static List<DestinationDetailInfo> getDestinationDetailData2() {
+        List<DestinationDetailInfo> dstInfo = new ArrayList<>();
+        dstInfo.add(new DestinationDetailInfo("热门2"));
+        dstInfo.add(new DestinationDetailInfo("国内2"));
+        dstInfo.add(new DestinationDetailInfo("韩国2"));
+        dstInfo.add(new DestinationDetailInfo("马尔代夫2"));
+        dstInfo.add(new DestinationDetailInfo("欧洲2"));
+        return dstInfo;
+    }
+
+
+
     // 分类数据
     public static List<FilterTwoBean> getCategoryData() {
         List<FilterTwoBean> list = new ArrayList<>();

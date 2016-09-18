@@ -12,7 +12,8 @@
         <View
             android:id="@+id/selected_indicator"
             android:layout_width="3dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:background="@color/grey_f2"/>
         <TextView
             android:id="@+id/title_list_item_content_tv"
             android:layout_width="match_parent"
@@ -20,8 +21,9 @@
             android:ellipsize="end"
             android:gravity="center"
             android:lineSpacingExtra="2dp"
-            android:textColor="@color/font_black_28"
-            android:textSize="15sp"/>
+            android:textColor="@color/font_black_38"
+            android:textSize="15sp"
+            android:background="@color/grey_f2"/>
     </LinearLayout>
 
     <View
