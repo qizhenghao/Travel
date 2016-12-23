@@ -101,7 +101,11 @@ public class TravelDetailActivity extends BaseActivity {
         list = new ArrayList<>();
         for(int i = 0;i < 8;i ++) {
             TravelDetailInfo details = new TravelDetailInfo();
-            details.content = i + "";
+            details.content = i + "云南是个少数民族众多的省份，去云南旅游的朋友" +
+                    "可以充分感受下那边的风情，另外那边的自然景观就不用我多说了，" +
+                    "下面开始介绍我本人一路从云南走来的经历。因为我今年大学即将毕业，" +
+                    "也就是人们所说的毕业季，而云南一直是我最向往的地方，所以选择云南" +
+                    "作为我毕业旅行的目的地，为期半个月。";
             list.add(details);
         }
 

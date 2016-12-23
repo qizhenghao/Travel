@@ -12,9 +12,5 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/travel_detail_bg4"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/travel_detail_bg4"/>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.bruce.travel.message.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -9,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseFragment;
+import com.bruce.travel.finds.activities.SearchTravelActivity;
 import com.bruce.travel.message.adapter.TitleAdapter;
 import com.bruce.travel.message.model.DestinationDetailInfo;
 import com.bruce.travel.message.model.DestinationInfo;
@@ -33,11 +36,12 @@ public class DestinationFragment extends BaseFragment {
     private ListView mTitleLv;
     private FrameLayout mDetailContainer;
     private TitleAdapter titleAdapter;
-    private int titlePosition;
+    private int titlePosition = 0;
     private List<DestinationInfo> titleList;
-    private DestinationDetailFragment dstDetailFragment;
+    private FragmentTransaction fragmentTransaction;
     private DestinationDetailInfo dstInfo;
     private int mPosition;
+    private TextView search_tv;
 
 
     @Override
@@ -49,6 +53,8 @@ public class DestinationFragment extends BaseFragment {
     @Override
     protected void initView() {
         mTitleLv = (ListView)mContentView.findViewById(R.id.dst_lv);
+        search_tv = (TextView) mContentView.findViewById(R.id.dst_search_tv);
+
     }
 
     @Override
@@ -56,8 +62,8 @@ public class DestinationFragment extends BaseFragment {
         titleAdapter = new TitleAdapter(getContext(), ModelUtil.getDestinationData());
         mTitleLv.setAdapter(titleAdapter);
 
-        dstDetailFragment = new DestinationDetailFragment();
-        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        DestinationDetailFragment dstDetailFragment = new DestinationDetailFragment();
+        fragmentTransaction = getChildFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.dst_detail_container, dstDetailFragment);
         Bundle bundle = new Bundle();
         bundle.putInt("selectInfo", titlePosition);
@@ -68,13 +74,12 @@ public class DestinationFragment extends BaseFragment {
 
     @Override
     protected void initListener() {
-        mTitleLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+        mTitleLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Methods.showToast("" + position, false);
-                titleAdapter.setSelectedItem(position);
-                dstDetailFragment = new DestinationDetailFragment();
+                DestinationDetailFragment dstDetailFragment = new DestinationDetailFragment();
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.dst_detail_container, dstDetailFragment);
                 Bundle bundle = new Bundle();
@@ -84,7 +89,26 @@ public class DestinationFragment extends BaseFragment {
 
             }
         });
-        mTitleLv.setAdapter(new TitleAdapter(getContext(), ModelUtil.getDestinationData()));
+
+        mTitleLv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                titleAdapter.changeSelected(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        search_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), SearchTravelActivity.class));
+            }
+        });
+
     }
 
     @Override

@@ -4,8 +4,36 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
+    <ListView
+        android:id="@+id/my_detail_list"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@drawable/travel_detail_bg2"/>
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/search_bg">
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/search"/>
+        <EditText
+            android:id="@+id/dst_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:hint="搜索"
+            android:textColor="@color/font_grey_ca"
+            android:gravity="center_vertical"
+            android:background="@null"
+            android:layout_marginLeft="30dp"
+            android:textSize="8.5pt"/>
+    </RelativeLayout>
 </LinearLayout>

@@ -87,6 +87,7 @@
                 android:background="@null"/>
         </ScrollView>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,12 +113,12 @@
                 android:textSize="8.5pt"
                 android:visibility="gone"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:layout_above="@+id/photo_display_gridview"
             android:layout_marginBottom="0dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -147,10 +148,10 @@
                 android:gravity="center"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/voice_record_btn"
+                    android:id="@+id/toolbar_emoji_btn"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/voice_record_icon"/>
+                    android:background="@drawable/toolbar_emoji_icon"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -169,17 +170,17 @@
             android:layout_height="0.6dp"
             android:background="@color/grey_d2" />
 
-        <GridView
-            android:id="@+id/photo_display_gridview"
+        <!--<me.iwf.photopicker.widget.MultiPickResultView-->
+            <!--android:id="@+id/recycler_onlylook"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:background="@color/grey_78"/>-->
+
+        <me.iwf.photopicker.widget.MultiPickResultView
+            android:id="@+id/photo_display_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
-            android:numColumns="4"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="8dp"
-            android:visibility="gone"/>
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:id="@+id/time_picker_ll"
             android:layout_width="match_parent"

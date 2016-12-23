@@ -9,6 +9,6 @@ public class TravelsEntityComparator implements Comparator<TravelsBean> {
 
     @Override
     public int compare(TravelsBean lhs, TravelsBean rhs) {
-        return rhs.getRank() - lhs.getRank();
+        return 0;
     }
 }

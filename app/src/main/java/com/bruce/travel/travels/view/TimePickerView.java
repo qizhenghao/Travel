@@ -26,27 +26,27 @@ public class TimePickerView extends LinearLayout {
     private static final int UPDATE_TITLE_MSG = 0x111;
     private static final int UPDATE_WHEEL = 0x112;
     private static final int UPDATE_UpdateDay_MSG = 0x113;
-    private final int START_YEAR = 2013;
-    private final int END_YEAR = 2100;
+    private static final int START_YEAR = 2013;
+    private static final int END_YEAR = 2100;
     private TextView mPickerTitle;
-    private WheelView mWheelYear;
-    private WheelView mWheelMonth;
-    private WheelView mWheelDay;
-    private WheelView mWheelHour;
+    private static WheelView mWheelYear;
+    private static WheelView mWheelMonth;
+    private static WheelView mWheelDay;
+    private static WheelView mWheelHour;
     private Button mCancelBtn;
     private Button mConfirmBtn;
-    private int mYear;
-    private int mMonth;
-    private int mDay;
-    private int mHour;
+    private static int mYear;
+    private static int mMonth;
+    private static int mDay;
+    private static int mHour;
 
     private String mStrMonth;
     private String mStrDay;
     private String pickTime;
 
     private Calendar mCalendar;
-    private int mDefaultDayWhellIndex = 0;
-    private Handler mHandler = new Handler() {
+    private static int mDefaultDayWhellIndex = 0;
+    private static Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -164,7 +164,7 @@ public class TimePickerView extends LinearLayout {
 //        });
     }
 
-    private void updateDay(int month) {
+    private static void updateDay(int month) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.MONTH, month);
         int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -202,7 +202,7 @@ public class TimePickerView extends LinearLayout {
 //        mPickerTitle.setText(mContext.getString(R.string.picker_title, mYear, mMonth + 1, mDay, mHour));
 //    }
 
-    private void updateWheel() {
+    private static void updateWheel() {
         mWheelYear.setDefault(mYear - START_YEAR);
         mWheelMonth.setDefault(mMonth);
         mWheelDay.setDefault(mDay - 1);
@@ -218,6 +218,8 @@ public class TimePickerView extends LinearLayout {
          }
          if(mDay > 0 && mDay < 9) {
              mStrDay = "0" + mDay;
+         } else {
+             mStrDay = mDay + "";
          }
          pickTime = mYear + "-" + mStrMonth + "-" + mStrDay;
          return pickTime;
@@ -239,7 +241,7 @@ public class TimePickerView extends LinearLayout {
         return list;
     }
 
-    private ArrayList<String> getDayData(int endDay) {
+    private static ArrayList<String> getDayData(int endDay) {
         ArrayList<String> list = new ArrayList<String>();
         for (int i = 1; i <= endDay; i++) {
             list.add(i + "日");

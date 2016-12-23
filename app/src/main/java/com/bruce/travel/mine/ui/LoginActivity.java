@@ -22,6 +22,24 @@ import com.bruce.travel.R;
 import com.bruce.travel.db.MyDbHelper;
 import com.bruce.travel.desktop.DesktopActivity;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
@@ -46,6 +64,9 @@ public class LoginActivity extends Activity implements OnClickListener {
     private boolean flag = false;
     private EventHandler eventHandler;
     private String user_phone;
+
+    public static HttpClient httpClient = new DefaultHttpClient();
+    private String url = "http://10.109.20.201:8080/TravelServer/login.do";
 
     private static final int CODE_ING = 1;   //已发送，倒计时
     private static final int CODE_REPEAT = 2;  //重新发送
@@ -114,7 +135,7 @@ public class LoginActivity extends Activity implements OnClickListener {
         login_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId) {
+                switch (checkedId) {
                     case R.id.account_login_radio_btn:
                         account_login_ll.setVisibility(View.VISIBLE);
                         dynamic_login_ll.setVisibility(View.GONE);
@@ -139,50 +160,60 @@ public class LoginActivity extends Activity implements OnClickListener {
                 break;
             case R.id.login_btn:
 
+                String account_login_name = account_login_name_et.getText().toString();
+                String account_login_password = account_lognin_password_et.getText().toString();
                 if(account_login_btn.isChecked()) {
-                    String account_login_name = account_login_name_et.getText().toString();
-                    String account_login_password = account_lognin_password_et.getText().toString();
-                    String dynamic_login_number = dynamic_login_number_et.getText().toString();
-                    String dynamic_login_password = dynamic_login_number_et.getText().toString();
-
-                    if(TextUtils.isEmpty(account_login_name)) {
+                    if (TextUtils.isEmpty(account_login_name)) {
                         Toast.makeText(getApplicationContext(), getString(R.string.error_user_empty), Toast.LENGTH_LONG).show();
                         return;
                     }
-                    if(TextUtils.isEmpty(account_login_password)) {
+                    if (TextUtils.isEmpty(account_login_password)) {
                         Toast.makeText(getApplicationContext(), getString(R.string.error_password_empty), Toast.LENGTH_LONG).show();
                         return;
                     }
 
-
-                    Cursor cursor = db.select();
-                    cursor.moveToFirst();
-                    while(cursor.moveToNext()) {
-                        if(cursor.getString(cursor.getColumnIndex("username")).equals(account_login_name)){
-                            if(cursor.getString(cursor.getColumnIndex("password")).equals(account_login_password)){
-//                            记住用户名、密码
-                                SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("USER_NAME", account_login_name);
-                                editor.putString("PASSWORD", account_login_password);
-                                editor.commit();
-                                flag = true;
-
-                            }
+                    try {
+                        if (loginPro()) {
+                            Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "账号或密码错误", Toast.LENGTH_SHORT).show();
                         }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    if(!flag){
-                        Toast.makeText(getApplicationContext(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Intent intent = new Intent(LoginActivity.this, DesktopActivity.class);
-                        intent.putExtra("loginState",true);
-                        intent.putExtra("username",account_login_name);
-                        startActivity(intent);
-                    }
-                } else {
-                    SMSSDK.submitVerificationCode("86", user_phone, dynamic_login_password_et.getText().toString());//对验证码进行验证->回调函数
-
                 }
 
+                Intent intent = new Intent(LoginActivity.this, DesktopActivity.class);
+                intent.putExtra("loginState", true);
+                intent.putExtra("username", account_login_name);
+                startActivity(intent);
+
+
+//                    Cursor cursor = db.select();
+//                    cursor.moveToFirst();
+//                    while(cursor.moveToNext()) {
+//                        if(cursor.getString(cursor.getColumnIndex("username")).equals(account_login_name)){
+//                            if(cursor.getString(cursor.getColumnIndex("password")).equals(account_login_password)){
+//                                // 记住用户名、密码
+//                                SharedPreferences.Editor editor = sp.edit();
+//                                editor.putString("USER_NAME", account_login_name);
+//                                editor.putString("PASSWORD", account_login_password);
+//                                editor.commit();
+//                                flag = true;
+//                            }
+//                        }
+//                    }
+//                    if(!flag){
+//                        Toast.makeText(getApplicationContext(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
+//                    }else{
+//                        Intent intent = new Intent(LoginActivity.this, DesktopActivity.class);
+//                        intent.putExtra("loginState",true);
+//                        intent.putExtra("username",account_login_name);
+//                        startActivity(intent);
+//                    }
+//                } else {
+//                    SMSSDK.submitVerificationCode("86", user_phone, dynamic_login_password_et.getText().toString());//对验证码进行验证->回调函数
+//                }
                 finish();
                 break;
 
@@ -205,18 +236,14 @@ public class LoginActivity extends Activity implements OnClickListener {
                                     @Override
                                     public void run()
                                     {
-                                        for (int i = 60; i > 0; i--)
-                                        {
+                                        for (int i = 60; i > 0; i--) {
                                             handler.sendEmptyMessage(CODE_ING);
-                                            if (i <= 0)
-                                            {
+                                            if (i <= 0) {
                                                 break;
                                             }
-                                            try
-                                            {
+                                            try {
                                                 Thread.sleep(1000);
-                                            } catch (InterruptedException e)
-                                            {
+                                            } catch (InterruptedException e) {
                                                 e.printStackTrace();
                                             }
                                         }
@@ -231,8 +258,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 
                 break;
             case R.id.register_new_account_btn:
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent1);
                 finish();
                 break;
         }
@@ -276,6 +303,64 @@ public class LoginActivity extends Activity implements OnClickListener {
             }
         }
     };
+
+    private boolean loginPro() throws Exception {
+        String username = account_login_name_et.getText().toString();
+        String pwd = account_lognin_password_et.getText().toString();
+
+        JSONObject json;
+        try{
+            json = query(username, pwd);
+            if(json.getInt("userId") > 0) {
+                return true;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this,"服务器异常",Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    private JSONObject query(String username, String password) throws Exception {
+        Map<String, String> map = new HashMap<>();
+        map.put("user", username);
+        map.put("pass", password);
+        return new JSONObject(postRequest(url, map));
+    }
+
+    public static String postRequest(final String url, final Map<String ,String> rawParams)throws Exception {
+        FutureTask<String> task = new FutureTask<String>(
+                new Callable<String>()
+                {
+                    @Override
+                    public String call() throws Exception
+                    {
+                        // 创建HttpPost对象。
+                        HttpPost post = new HttpPost(url);
+                        // 如果传递参数个数比较多的话可以对传递的参数进行封装
+                        List<NameValuePair> params = new ArrayList<>();
+                        for(String key : rawParams.keySet())
+                        {
+                            //封装请求参数
+                            params.add(new BasicNameValuePair(key, rawParams.get(key)));
+                        }
+                        // 设置请求参数
+                        post.setEntity(new UrlEncodedFormEntity(params, "utf-8"));
+                        // 发送POST请求
+                        HttpResponse httpResponse = httpClient.execute(post);
+                        // 如果服务器成功地返回响应
+                        if (httpResponse.getStatusLine().getStatusCode() == 200)
+                        {
+                            // 获取服务器响应字符串
+                            String result = EntityUtils.toString(httpResponse.getEntity());
+                            return result;
+                        }
+                        return null;
+                    }
+                });
+        new Thread(task).start();
+        return task.get();
+    }
 
     @Override
     protected void onDestroy() {

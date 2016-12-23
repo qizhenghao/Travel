@@ -12,11 +12,9 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!--camera -->
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--在sdcard中创建/删除文件的权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
@@ -25,7 +23,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
 
 
@@ -51,6 +48,19 @@
         <activity android:name=".finds.ui.TravelDetailActivity"/>
         <activity android:name=".travels.activities.MyTravelsDetailActivity"
                   android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".finds.activities.SearchTravelActivity"/>
+
+        <activity
+            android:theme="@style/customTheme"
+            android:name="me.iwf.photopicker.PhotoPickerActivity" />
+
+        <activity
+            android:theme="@style/customTheme"
+            android:name="me.iwf.photopicker.PhotoPagerActivity" />
+
+        <activity
+            android:theme="@style/MyDialogStyle"
+            android:name=".travels.activities.RecordSaveActivity" />
 
 
     <!-- 百度地图所需的service -->

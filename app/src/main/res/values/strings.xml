@@ -36,7 +36,7 @@
     <string name="point">温馨提示</string>
     <string name="exit_message">你确定要退出当前登录用户吗？</string>
     <string name="exit_ok">确定</string>
-    <string name="exit_cancle">取消</string>
+    <string name="exit_cancel">取消</string>
     <string name="error_phone_empty">手机号不能为空</string>
     <string name="error_user_there">用户名已经存在</string>
     <string name="quit_txt">退出</string>
@@ -44,4 +44,5 @@
     <string name="msg_set">消息设置</string>
     <string name="empty_local_image">清空缓存图片</string>
     <string name="picker_title">设置时间</string>
+    <string name="saveto">保存到</string>
 </resources>

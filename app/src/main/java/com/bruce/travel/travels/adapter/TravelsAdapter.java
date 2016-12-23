@@ -34,7 +34,8 @@ public class TravelsAdapter extends BaseListAdapter<TravelsBean> {
         super(context);
     }
 
-    public TravelsAdapter(Context context, List<TravelsBean> list) {
+    public TravelsAdapter(Context context, List<TravelsBean> list)
+    {
         super(context, list);
     }
 
@@ -90,14 +91,8 @@ public class TravelsAdapter extends BaseListAdapter<TravelsBean> {
 
         TravelsBean entity = getItem(position);
 
-        holder.llRootView.setVisibility(View.VISIBLE);
-        if (TextUtils.isEmpty(entity.getType())) {
-            holder.llRootView.setVisibility(View.INVISIBLE);
-            return convertView;
-        }
-
-        holder.tvTitle.setText(entity.getFrom() + entity.getTitle() + entity.getType());
-        holder.tvRank.setText(entity.getDate());
+        holder.tvTitle.setText(entity.getTitle());
+        holder.tvDate.setText(entity.getDate());
         mImageManager.loadUrlImage(entity.getImage_url(), holder.ivImage);
 
         return convertView;
@@ -110,8 +105,8 @@ public class TravelsAdapter extends BaseListAdapter<TravelsBean> {
         ImageView ivImage;
         @Bind(R.id.tv_title)
         TextView tvTitle;
-        @Bind(R.id.tv_rank)
-        TextView tvRank;
+        @Bind(R.id.tv_date)
+        TextView tvDate;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

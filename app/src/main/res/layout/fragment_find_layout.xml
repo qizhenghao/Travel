@@ -50,23 +50,22 @@
             android:layout_below="@+id/tab_line_layout"
             android:layout_marginTop="20dp"
             android:background="@drawable/search_bg">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:hint="输入搜索内容"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="6dp"
-                android:textColor="@color/font_grey_ca"
-                android:background="@null"
-                android:textSize="8.5pt"/>
             <Button
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:gravity=""
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
                 android:layout_marginTop="2.5dp"
                 android:background="@drawable/search"/>
+            <TextView
+                android:id="@+id/search_tv"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="输入搜索内容"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/font_grey_ca"
+                android:background="@null"
+                android:textSize="8.5pt"/>
+
         </RelativeLayout>
 
         

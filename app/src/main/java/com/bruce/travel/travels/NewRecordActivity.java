@@ -1,11 +1,14 @@
 package com.bruce.travel.travels;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -14,6 +17,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -22,21 +26,20 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseActivity;
-import com.bruce.travel.finds.model.TravelNotesInfo;
+import com.bruce.travel.travels.activities.RecordSaveActivity;
+import com.bruce.travel.travels.model.Manifest;
 import com.bruce.travel.travels.view.PopWindowView;
 import com.bruce.travel.travels.view.TimePickerView;
-import com.bruce.travel.universal.photopicker.camera.PhotoPickManger;
-import com.bruce.travel.universal.photopicker.tools.PhotoGridManager;
-import com.bruce.travel.universal.photopicker.tools.SimpleImageLoader;
 import com.bruce.travel.universal.utils.Methods;
 
-
-import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import me.iwf.photopicker.PhotoPickUtils;
+import me.iwf.photopicker.widget.MultiPickResultView;
+import me.iwf.photopicker.widget.PhotoAdapter;
 
 /**
  * Created by 梦亚 on 2016/8/22.
@@ -47,8 +50,8 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     Button local_time_btn;
     @Bind(R.id.location_btn)
     Button location_btn;
-    @Bind(R.id.voice_record_btn)
-    Button voice_record_btn;
+    @Bind(R.id.toolbar_emoji_btn)
+    Button toolbar_emoji_btn;
     @Bind(R.id.photo_select_btn)
     Button photo_select_btn;
     @Bind(R.id.return_desktop_btn)
@@ -64,16 +67,19 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     @Bind(R.id.date_pick_confirm_btn)
     Button time_confirm_btn;
     @Bind(R.id.date_pick_cancel_btn)
-    Button time_cancle_btn;
+    Button time_cancel_btn;
 
-    private GridView photo_gv;
     private EditText title_et;
     private EditText content_et;
 
     //photo
     private InputMethodManager imm;
-    private PhotoPickManger pickManager;
-    private PhotoGridManager photoGridManager;
+    MultiPickResultView recyclerView;
+    public static final int REQUEST_CODE = 1;
+
+    private int pathNum;
+    ArrayList<String> selectedPhotos;
+    private PhotoAdapter adapter = new PhotoAdapter(selectedPhotos);
 
     //locate
     public LocationClient mLocationClient = null;
@@ -83,8 +89,7 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     private String myLocation;
     TimePickerView timePicker;
     private String pickTimeStr;
-    private List<TravelNotesInfo> list;
-    private TravelNotesInfo travelInfo;
+
 
 
 
@@ -95,21 +100,9 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         ButterKnife.bind(this);
         init();
 
-        SimpleImageLoader.init(this.getApplicationContext());
-
-        {
-            pickManager = new PhotoPickManger("pick1", this, savedInstanceState, new PhotoPickManger.OnPhotoPickFinsh() {
-                @Override
-                public void onPhotoPick(List<File> list) {
-                    photoGridManager.getAdapter().notifyDataSetChanged();
-                }
-            });
-            photoGridManager = new PhotoGridManager(photo_gv,pickManager, 8, 4);
-            setPickMangerAndPhotoGridManger(pickManager, photoGridManager);
-        }
-
         mLocationClient = new LocationClient(this);
         mLocationClient.registerLocationListener(myListener);
+        recyclerView.setVisibility(View.GONE);
     }
 
 
@@ -120,7 +113,9 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
         title_et = (EditText) findViewById(R.id.record_title_et);
         content_et = (EditText) findViewById(R.id.record_content_et);
 
-        photo_gv = (GridView) findViewById(R.id.photo_display_gridview);
+        recyclerView = (MultiPickResultView) findViewById(R.id.photo_display_view);
+        recyclerView.init(this, MultiPickResultView.ACTION_SELECT, null);
+
         imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
         timePicker = (TimePickerView) findViewById(R.id.time_picker);
@@ -130,12 +125,20 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
             public void onClick(int position) {
                 switch (position) {
                     case 0:
-                        Methods.showToast("lalala111",false);
+                        Intent intent1 = new Intent(NewRecordActivity.this, RecordSaveActivity.class);
+                        startActivity(intent1);
                         break;
                     case 1:
                         Methods.showToast("lalala222",false);
                         break;
                 }
+            }
+        });
+
+        photo_select_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkPermission();
             }
         });
 
@@ -153,14 +156,15 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void initData() {
         title_et.setFocusable(true);
-
         timePicker.setDate(new Date().getTime());
+        pickTimeStr = timePicker.getPickTime();
 
         title_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    photo_gv.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.GONE);
+                    time_picker_ll.setVisibility(View.GONE);
                 }
             }
         });
@@ -169,10 +173,12 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    photo_gv.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.GONE);
+                    time_picker_ll.setVisibility(View.GONE);
                 }
             }
         });
+
 
     }
 
@@ -180,12 +186,12 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     protected void initListeners() {
         local_time_btn.setOnClickListener(this);
         location_btn.setOnClickListener(this);
-        voice_record_btn.setOnClickListener(this);
+        toolbar_emoji_btn.setOnClickListener(this);
         photo_select_btn.setOnClickListener(this);
         return_btn.setOnClickListener(this);
         cancel_tv.setOnClickListener(this);
         time_confirm_btn.setOnClickListener(this);
-        time_cancle_btn.setOnClickListener(this);
+        time_cancel_btn.setOnClickListener(this);
     }
 
 
@@ -193,17 +199,25 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.photo_select_btn:
-                createDialog(pickManager);
+                recyclerView.setVisibility(View.VISIBLE);
                 imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+                PhotoPickUtils.startPick(this, null);
+                time_picker_ll.setVisibility(View.GONE);
+                Methods.showToast(pathNum + "", true);
+                //每次点击选择图片选项都重新选择有问题，先判断当前是否已经有选中的图片，如果有则只显示当前选中图片
                 break;
             case R.id.local_time_btn:
+                recyclerView.setVisibility(View.GONE);
+                pickTimeStr = timePicker.getPickTime();
                 time_picker_ll.setVisibility(View.VISIBLE);
                 imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
                 break;
             case R.id.date_pick_confirm_btn:
-                pickTimeStr = timePicker.getPickTime();
+//                pickTimeStr = timePicker.getPickTime();
                 time_picker_ll.setVisibility(View.GONE);
-                Methods.showToast(pickTimeStr, true);
+                Methods.showToast(pickTimeStr, false);
+                break;
+            case R.id.toolbar_emoji_btn:
                 break;
             case R.id.date_pick_cancel_btn:
                 time_picker_ll.setVisibility(View.GONE);
@@ -219,6 +233,81 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        recyclerView.onActivityResult(requestCode, resultCode, data);
+//        recyclerViewShowOnly.showPics(recyclerView.getPhotos());
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            // permission was granted, yay!
+            onClick(photo_select_btn);
+
+        } else {
+            // permission denied, boo! Disable the
+            // functionality that depends on this permission.
+            Toast.makeText(this, "No read storage permission! Cannot perform the action.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public boolean shouldShowRequestPermissionRationale(String permission) {
+        switch (permission) {
+            case Manifest.permission.READ_EXTERNAL_STORAGE:
+            case Manifest.permission.CAMERA:
+                // No need to explain to user as it is obvious
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    private void checkPermission() {
+
+        int readStoragePermissionState = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        int cameraPermissionState = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+
+        boolean readStoragePermissionGranted = readStoragePermissionState != PackageManager.PERMISSION_GRANTED;
+        boolean cameraPermissionGranted = cameraPermissionState != PackageManager.PERMISSION_GRANTED;
+
+        if (readStoragePermissionGranted || cameraPermissionGranted) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)
+                    || ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.CAMERA)) {
+
+                // Show an expanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+                String[] permissions;
+                if (readStoragePermissionGranted && cameraPermissionGranted) {
+                    permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA };
+                } else {
+                    permissions = new String[] {
+                            readStoragePermissionGranted ? Manifest.permission.READ_EXTERNAL_STORAGE
+                                    : Manifest.permission.CAMERA
+                    };
+                }
+                ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE);
+            }
+
+        } else {
+            // Permission granted
+            onClick(photo_select_btn);
+        }
+
     }
 
     private void InitLocation() {
@@ -252,59 +341,6 @@ public class NewRecordActivity extends BaseActivity implements View.OnClickListe
             }
         }
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        pickManager.onActivityResult(requestCode, resultCode, data);
-        photo_gv.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        pickManager.onSaveInstanceState(outState);
-    }
-
-    public void setPickMangerAndPhotoGridManger(final PhotoPickManger pickManger,PhotoGridManager photoGridManager){
-        photoGridManager.setDrawableAdd(R.drawable.add_photo_icon);
-        photoGridManager.setDrawableDel(R.drawable.photo_del_black);
-        final PhotoGridManager finalPhotoGridManager = photoGridManager;
-        pickManger.setOnPhotoPickFinsh(new PhotoPickManger.OnPhotoPickFinsh() {
-            @Override
-            public void onPhotoPick(List<File> list) {
-                finalPhotoGridManager.getAdapter().notifyDataSetChanged();
-            }
-        });
-
-        photoGridManager.setOnItemAddAction(new PhotoGridManager.OnItemAction() {
-            @Override
-            public void onItemAciton(PhotoGridManager photoGridManager) {
-                pickManger.setReturnFileCount(8 - pickManger.getSelectsPhotos().size());
-                createDialog(pickManger);
-            }
-        });
-        pickManger.flushBundle();
-    }
-
-    public void createDialog(final PhotoPickManger pickManger){
-        new AlertDialog.Builder(pickManger.getActivity()).setTitle("单选框").setIcon(
-                android.R.drawable.ic_dialog_info).setSingleChoiceItems(
-                new String[]{"系统相机", "系统相册","微信相册"},-1,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        switch (which) {
-                            case 0:
-                                pickManger.start(PhotoPickManger.Mode.SYSTEM_CAMERA);
-                                break;
-                            case 1:
-                                pickManger.start(PhotoPickManger.Mode.SYSTEM_IMGCAPTRUE);
-                                break;
-                        }
-                    }
-                }).show();
-    }
-
 
 
 }

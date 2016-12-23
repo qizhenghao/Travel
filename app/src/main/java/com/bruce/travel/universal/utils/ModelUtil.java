@@ -13,9 +13,7 @@ import com.bruce.travel.travels.been.TravelsEntityComparator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 好吧，让你找到了，这是假的数据源
@@ -67,29 +65,15 @@ public class ModelUtil {
     // ListView数据
     public static List<TravelsBean> getTravelingData() {
         List<TravelsBean> travelingList = new ArrayList<>();
-        travelingList.add(new TravelsBean(type_scenery, "大理", "中国", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=2769726205,1778838650&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=1832737924,144748431&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "意大利", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=2091366266,1524114981&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "拱门", "美国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=3673198446,2175517238&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "荷花", "中国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=3052089044,3887933556&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "", "西班牙", "2016-12-06", "http://img2.imgtn.bdimg.com/it/u=140083303,1086773509&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=1424970962,1243597989&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "水貂", "美国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=1387833256,3665925904&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "仙人掌", "美国", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=3808801622,1608105009&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "威尔士", "英国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=2440866214,1867472386&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "伦敦塔桥", "英国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=3040385967,1031044866&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "", "英国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=1896821840,3837942977&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "", "英国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=2745651862,279304559&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "德国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=4137420324,1489843447&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "自由女神像", "美国", "2016-12-06", "http://img3.imgtn.bdimg.com/it/u=2566161363,1140447270&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "拉萨", "中国", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=372954611,2699392190&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "熊猫", "中国", "2016-12-06", "http://img0.imgtn.bdimg.com/it/u=1022702848,645282860&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "", "德国", "2016-12-06", "http://img1.imgtn.bdimg.com/it/u=3436675019,2609348874&fm=206&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_animal, "狗熊", "德国", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=4280994062,276434784&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_plant, "", "德国", "2016-12-06", "http://img0.imgtn.bdimg.com/it/u=1644854868,3172549858&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_scenery, "", "西班牙", "2016-12-06", "http://img4.imgtn.bdimg.com/it/u=620137884,621556624&fm=21&gp=0.jpg"));
-        travelingList.add(new TravelsBean(type_building, "", "意大利", "2016-12-06", "http://img0.imgtn.bdimg.com/it/u=3631118072,1530723002&fm=206&gp=0.jpg"));
-        return travelingList;
+        travelingList.add(new TravelsBean(  "中国", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=2769726205,1778838650&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean( "西班牙", "2016-12-15", "http://img1.imgtn.bdimg.com/it/u=1832737924,144748431&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean( "意大利", "2016-12-06", "http://img5.imgtn.bdimg.com/it/u=2091366266,1524114981&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean( "荷兰", "2016-06-06", "http://img4.imgtn.bdimg.com/it/u=3673198446,2175517238&fm=206&gp=0.jpg"));
+        travelingList.add(new TravelsBean( "加拿大", "2016-03-06", "http://img4.imgtn.bdimg.com/it/u=3052089044,3887933556&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean("韩国", "2015-10-06", "http://img2.imgtn.bdimg.com/it/u=140083303,1086773509&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean("英国", "2015-10-17", "http://img5.imgtn.bdimg.com/it/u=1424970962,1243597989&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean("泰国", "2016-11-26", "http://img4.imgtn.bdimg.com/it/u=1387833256,3665925904&fm=21&gp=0.jpg"));
+        travelingList.add(new TravelsBean("新加坡", "2016-06-12", "http://img1.imgtn.bdimg.com/it/u=3808801622,1608105009&fm=21&gp=0.jpg")); return travelingList;
     }
 
     public static List<TravelNotesInfo> getTravelNotesData() {
@@ -197,12 +181,12 @@ public class ModelUtil {
         List<TravelsBean> list = getTravelingData();
         List<TravelsBean> travelingList = new ArrayList<>();
         int size = list.size();
-        for (int i=0; i<size; i++) {
-            if (list.get(i).getType().equals(entity.getType()) &&
-                    list.get(i).getFrom().equals(entity.getSelectedFilterEntity().getKey())) {
-                travelingList.add(list.get(i));
-            }
-        }
+//        for (int i=0; i<size; i++) {
+//            if (list.get(i).getType().equals(entity.getType()) &&
+//                    list.get(i).getFrom().equals(entity.getSelectedFilterEntity().getKey())) {
+//                travelingList.add(list.get(i));
+//            }
+//        }
         return travelingList;
     }
 
@@ -223,11 +207,11 @@ public class ModelUtil {
         List<TravelsBean> list = getTravelingData();
         List<TravelsBean> travelingList = new ArrayList<>();
         int size = list.size();
-        for (int i=0; i<size; i++) {
-            if (list.get(i).getFrom().equals(entity.getKey())) {
-                travelingList.add(list.get(i));
-            }
-        }
+//        for (int i=0; i<size; i++) {
+//            if (list.get(i).getFrom().equals(entity.getKey())) {
+//                travelingList.add(list.get(i));
+//            }
+//        }
         return travelingList;
     }
 

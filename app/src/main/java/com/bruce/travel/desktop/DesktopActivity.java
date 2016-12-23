@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.bruce.travel.R;
 import com.bruce.travel.base.BaseActivity;
@@ -26,6 +27,8 @@ import com.bruce.travel.universal.utils.ImageUtils;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class DesktopActivity extends BaseActivity {
@@ -39,6 +42,8 @@ public class DesktopActivity extends BaseActivity {
     private int index;
     private int currentTabIndex;
     private Button[] mTabs;
+
+    private boolean mBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +139,23 @@ public class DesktopActivity extends BaseActivity {
 //
 //                }
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(!mBackPressed) {
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            mBackPressed = true;
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    mBackPressed = false;
+                }
+            }, 2000);
+        } else {
+            this.finish();
+            System.exit(0);
         }
     }
 }

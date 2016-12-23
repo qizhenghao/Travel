@@ -25,6 +25,13 @@ public class TitleAdapter extends BaseAdapter {
         this.destinationInfos = infos;
     }
 
+    public void changeSelected(int position){ //刷新方法
+        if(position != mSelectedItem){
+            mSelectedItem = position;
+            notifyDataSetChanged();
+        }
+    }
+
     @Override
     public int getCount() {
         return destinationInfos.size();
@@ -48,25 +55,26 @@ public class TitleAdapter extends BaseAdapter {
             holder = new GroupItemHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_destination_title_list_item, null);
             holder.tv = (TextView) convertView.findViewById(R.id.title_list_item_content_tv);
-            holder.indicator = (View) convertView.findViewById(R.id.selected_indicator);
+            holder.indicator = convertView.findViewById(R.id.selected_indicator);
             convertView.setTag(holder);
         } else {
             holder = (GroupItemHolder) convertView.getTag();
         }
 
-        if (position == mSelectedItem) {
+        if (mSelectedItem == position) {
             holder.tv.setTextColor(Color.BLACK);
             holder.tv.setBackgroundResource(R.color.white);
             holder.indicator.setBackgroundResource(R.color.blue_light);
+        } else {
+            holder.tv.setTextColor(Color.GRAY);
+            holder.tv.setBackgroundResource(R.color.grey_f2);
+            holder.indicator.setBackgroundResource(R.color.grey_f2);
         }
 
         holder.tv.setText(info.getTitle());
         return convertView;
     }
 
-    public void setSelectedItem(int selectedItem) {
-        this.mSelectedItem = selectedItem;
-    }
     private static class GroupItemHolder {
         TextView tv;
         View indicator;

@@ -19,6 +19,7 @@
 
     <!-- 通用按钮的圆角角度-->
     <dimen name="common_button_radius">4dp</dimen>
+    <dimen name="common_button_radius_2">10dp</dimen>
     <dimen name="common_button_semi_circle_radius">22.5dp</dimen>
 
     <dimen name="fontsize_7px">7sp</dimen>

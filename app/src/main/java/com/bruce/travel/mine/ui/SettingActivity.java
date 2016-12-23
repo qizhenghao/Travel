@@ -57,7 +57,7 @@ public class SettingActivity extends Activity implements View.OnClickListener {
                                 startActivity(intent);
                                 finish();
                             }
-                        }).setNegativeButton(getString(R.string.exit_cancle), new DialogInterface.OnClickListener() {
+                        }).setNegativeButton(getString(R.string.exit_cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

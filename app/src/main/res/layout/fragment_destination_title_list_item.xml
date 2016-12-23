@@ -9,11 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:orientation="horizontal">
+        <!--android:background="@drawable/destination_title_item_bg_color"-->
         <View
             android:id="@+id/selected_indicator"
             android:layout_width="3dp"
             android:layout_height="match_parent"
-            android:background="@color/grey_f2"/>
+            android:background="@color/grey_f2" />
+        <!--android:background="@color/destination_title_item_indicator_color-->
+
         <TextView
             android:id="@+id/title_list_item_content_tv"
             android:layout_width="match_parent"
@@ -21,7 +24,8 @@
             android:ellipsize="end"
             android:gravity="center"
             android:lineSpacingExtra="2dp"
-            android:textColor="@color/font_black_38"
+            android:duplicateParentState="true"
+            android:textColor="@color/grey_78"
             android:textSize="15sp"
             android:background="@color/grey_f2"/>
     </LinearLayout>
